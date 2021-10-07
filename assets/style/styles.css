@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Prata;
+    src: url(../fonts/Prata/Prata-Regular.ttf);
+    }
+a{
+    font-family: Prata; 
+    text-decoration: none;
+}
+body{
+    background-color:#FFFDF3;
+}
+#logo{
+    font-family: Prata;
+}
