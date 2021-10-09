@@ -1,14 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 @font-face {
     font-family: Prata;
     src: url(../fonts/Prata/Prata-Regular.ttf);
-    }
-a{
+}
+a {
     font-family: Prata; 
     text-decoration: none;
+    color: black;
 }
-body{
+a:hover {
+    color: red;
+}
+body {
     background-color:#FFFDF3;
 }
-#logo{
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+.navbar li {
+    list-style: none;
+    margin-right: 5rem;
+}
+.navbar :first-child {
+    margin-right: auto;
+}
+#logo {
     font-family: Prata;
+    font-size: 40px;
 }
