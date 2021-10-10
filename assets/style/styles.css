@@ -8,7 +8,7 @@
     src: url(../fonts/Prata/Prata-Regular.ttf);
 }
 a {
-    font-family: Prata; 
+    font-family: Prata;
     text-decoration: none;
     color: black;
 }
@@ -34,5 +34,21 @@ body {
 }
 #logo {
     font-family: Prata;
-    font-size: 40px;
+}
+svg {
+    width: 75%;
+    position: fixed;
+    right: 10px;
+    padding: 10px;
+    margin: 0;
+}
+svg path{
+    fill: #de554e;
+    stroke: #FFFDF3;
+    stroke-width: .25
+}
+svg path:hover{
+fill: #de8581;
+transition: 0.6s;
+cursor: pointer;
 }
