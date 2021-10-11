@@ -1,23 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 @font-face {
     font-family: Prata;
     src: url(../fonts/Prata/Prata-Regular.ttf);
-    }
+}
+@font-face {
+    font-family: Lato-LightItalic;
+    src: url(../fonts/Lato/Lato-LightItalic.ttf);
+}
+
+/* Nav bar section*/
+nav {
+    background-color: #fffdf3;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    font-size: 25px;
+}
+
+.navbar li {
+    list-style: none;
+    margin-right: 5rem;
+}
+
+.navbar :first-child {
+    margin-right: auto;
+}
+
+.navbar a:hover {
+    color: red;
+}
+
+#logo {
+    font-family: Prata;
+    font-size: 40px;
+} 
+
+/* Background videos */
+#background-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+}
+
+header {
+    position:static;
+    display: flex;
+    align-items: center;
+    margin-top: 110pt;
+    margin-left: 30pt;
+}
+
+#header-text{
+    width: 25%;
+    font-family:  Lato-LightItalic;
+    font-size: 18pt;
+    color: white;
+}
+
 a{
-    font-family: Prata; 
+    font-family: Prata;
     text-decoration: none;
+    color: black;
 }
-body{
-    background-color:#FFFDF3;
-}
+
 #logo{
     font-family: Prata;
 }
+
+/* Map on countries page */
 svg {
     width: 75%;
     position: fixed;
     right: 10px;
     padding: 10px;
-    margin: 0; 
+    margin: 0;
 }
 svg path{
     fill: #de554e;
@@ -28,4 +96,44 @@ svg path:hover{
 fill: #de8581;
 transition: 0.6s;
 cursor: pointer;
+}
+
+/* Buttons */
+button{
+    border:none;
+    font-family: Prata;
+    position:relative;
+    height:30px;
+    font-size:12pt;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+
+button:hover{
+    background:#fff;
+    color:orange;
+}
+button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background:orange;
+    transition:400ms ease all;
+}
+
+button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+
+button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
 }
