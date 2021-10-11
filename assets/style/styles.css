@@ -12,6 +12,47 @@
     src: url(../fonts/Lato/Lato-LightItalic.ttf);
 }
 
+/* style for dropdown */
+
+.contact-form{
+    font-family: Prata;
+    max-width: 350px;
+    margin: 150px 80px;
+    border-radius: 10px;
+    background-color: #F2DFDB;
+    padding: 20px;
+}
+
+select{
+    width: 100%;
+    padding: 12px, 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    width: 100%;
+    background: #BAECBA;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type=submit]:hover{
+    background-color: #000;
+    color: white;
+
+
+}
+
+
 /* Nav bar section*/
 nav {
     background-color: #fffdf3;
