@@ -12,19 +12,22 @@
     src: url(../fonts/Lato/Lato-LightItalic.ttf);
 }
 
-/* style for dropdown */
-
-.contact-form{
-    font-family: Prata;
-    max-width: 350px;
-    margin: 150px 80px;
-    border-radius: 10px;
-    background-color: #F2DFDB;
-    padding: 20px;
+html{
+    height: 100%;
 }
 
 body{
     background-color: #FFFDF3;
+}
+
+/* style for dropdown */
+.contact-form{
+    font-family: Prata;
+    max-width: 350px;
+    margin: 110px 50px;
+    border-radius: 10px;
+    background-color: #F2DFDB;
+    padding: 20px;
 }
 
 select{
@@ -35,6 +38,7 @@ select{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 input[type=submit]{
@@ -44,16 +48,16 @@ input[type=submit]{
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    font-family: Prata;
+    font-weight: bold;
 }
 
 input[type=submit]:hover{
     background-color: #000;
     color: white;
-
-
 }
 
 
@@ -122,11 +126,11 @@ a{
 
 /* Map on countries page */
 svg {
-    width: 75%;
-    position: fixed;
-    right: 10px;
-    padding: 10px;
-    margin: 0;
+    width: 900px;
+    height: 400px;
+    position: absolute;
+    top: 150px;
+    left: 360px;
 }
 svg path{
     fill: #de554e;
