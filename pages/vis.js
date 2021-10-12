@@ -13,6 +13,7 @@ Promise.all([
 		.forEach(row => data_map.set(row["Country Code"], row)) //fill data with valid countries
 
 	const update_map = setup_map(geojson, data_map);
+	const update_bars = setup_bar(data_map);
 
 	//setup slider
 	d3.select("div#controls")
@@ -27,9 +28,24 @@ Promise.all([
 					.text(() => year);
 				
 				update_map(year);
+				update_bars(year);
 			})
 
+	d3.select("#select")
+		.on("change", e => {
+			const val = d3.select("#select").node().value;
+			d3.selectAll("svg")
+				.style("display", "none");
+
+			d3.select(`svg#${val}`)
+				.style("display", "block");
+
+			if (val == "map") d3.select("#mapscale").style("display", "initial")
+
+		})
+
 	update_map(1970);
+	update_bars(1970);
 
 });
 
@@ -60,8 +76,6 @@ function setup_map (geojson, data) {
 				.attr("d", d3.geoPath().projection(projection))
 				.attr("fill", d => {
 					return "black"
-					console.log(data.get(d.id), d.id)
-					if (!data.get(d.id)) return
 				})
 				.on("mouseenter", (e, d) => {
 					const sl = d.properties.scaleLookup;
@@ -158,7 +172,6 @@ function setup_map (geojson, data) {
 
 		d3.selectAll("text.scalelabel")
 			.text(d => {
-				console.log(d)
 				return Math.trunc(colorScale.invert(scalescale(d))) + " kt"
 			})
 
@@ -168,7 +181,65 @@ function setup_map (geojson, data) {
 }
 
 function setup_bar (data) {
-	
+	const margin = {top: 30, right: 30, bottom: 70, left: 80}
+	const width = 500 - margin.left - margin.right;
+	const height = 500 - margin.bottom - margin.top;
+
+	const svg = d3.select("div#vis")
+		.append("svg")
+		.attr("id", "bar")
+		.attr("width", 500)
+		.attr("height", 500)
+		.style("display", "none")
+		.append("g")
+			.attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+	const x = d3.scaleBand()
+		.range([0, width])
+		.padding(.2)
+
+	const y = d3.scaleLinear()
+		.range([height, 0])
+
+	const xAxis = svg.append("g")
+		.classed("xaxis", true)
+		.attr("transform", `translate(0, ${height})`)
+
+	const yAxis = svg.append("g")
+		.classed("yaxis", true)
+
+	const update = (year) => {
+		const maxval = d3.max(data, d => +d[1][year])
+
+		let vals = Array.from(data.values()).sort((a, b) => +a[year] < +b[year] ? 1 : -1)
+		const topten = vals.slice(0, 10)
+
+		x.domain(topten.map(d => d["Country Name"]))
+		y.domain([0, maxval])
+
+		svg.selectAll("rect.bar")
+			.data(topten, d => d["Country Name"] + year)
+			.enter()
+			.append("rect")
+				.classed("bar", true)
+					.attr("x", d => x(d["Country Name"]))
+					.attr("y", d => y(+d[year]))
+					.attr("width", x.bandwidth())
+					.attr("height", d => height - y(d[year]))
+					.attr("fill", "blue")
+			.exit()
+			.remove()
+
+		xAxis.call(d3.axisBottom(x))
+		yAxis.call(d3.axisLeft(y))
+
+		xAxis.selectAll("text")
+			.attr("transform", `translate(-10,0)rotate(-45)`)
+			.style("text-anchor", "end")
+
+	}
+
+	return update
 }
 
 
