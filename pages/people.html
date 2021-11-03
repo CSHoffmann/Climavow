@@ -75,5 +75,46 @@
     </div>
     
     
+
+    <div class="leaders-filter">
+        <form>
+            <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
+            <select id="countries">
+                <option hidden selected>Select leaders</option>
+                <option value="1" class="us" id="select1">United States</option>
+                <option value="2" class="gr" id="select2">Germany</option>
+                <option value="3" class="fr" id="select3">France</option>
+            </select>
+&nbsp&nbsp
+            <select id="leaders">
+                <option hidden selected>Select leader</option>
+                <option value="1" class="select us">Joe Biden</option>
+                <option value="2" class="select gr">Merkel</option>
+                <option value="3" class="select fr">Macron</option>
+            </select>
+&nbsp&nbsp
+            <select id="indicator">
+                <option hidden selected>Select indicator</option>
+                <option value="1">CO2</option>
+            </select>
+            &nbsp&nbsp
+            <input type="submit" value="Get Data">
+        </form>
+    </div>
+    
+   <script>
+       
+    $(document).ready(function () {    
+        var allOptions = $('#leaders option')
+        $('#countries').change(function () {
+            $('#leaders option').remove()
+            var classN = $('#countries option:selected').prop('class');
+            var opts = allOptions.filter('.' + classN);
+            $.each(opts, function (i, j) {
+                $(j).appendTo('#leaders');
+            });
+        });
+    });
+    </script> 
 </body>
 </html>
