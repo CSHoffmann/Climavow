@@ -20,8 +20,41 @@ body{
     background-color: #FFFDF3;
 }
 
+img{
+    border-radius: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: first baseline;
+    align-items: flex-start;
+}
+
+.leaders-results{
+    display: flex;
+    font-family: Prata;
+    max-width: 500px;
+    height: 340px;
+    margin: 110px 50px;
+    border-radius: 10px;
+    background-color: #F2DFDB;
+    padding: 20px;
+}
+
+.leaders-results #leader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#promises div{ 
+    display: flex;
+    margin-bottom: 15pt;
+    margin-left: 10pt;
+}
+
 /* style for dropdown */
-.leaders-filter{
+.filter{
     font-family: Prata;
     max-width: 350px;
     margin: 110px 50px;

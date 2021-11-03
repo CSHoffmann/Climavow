@@ -20,32 +20,59 @@
     </nav>
     <video id="background-video" src="../assets/media/world leaders.mp4" width="1250" height="1000" autoplay loop muted></video>
 
-
-    <div class="leaders-filter">
-        <form>
-            <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
-            <select id="countries">
-                <option hidden selected>Select country</option>
-                <option value="1">United States</option>
-                <option value="2">Germany</option>
-                <option value="3">France</option>
-            </select>
-&nbsp&nbsp
-            <select id="leaders">
-                <option hidden selected>Select leader</option>
-                <option value="1">Joe Biden</option>
-                <option value="2">Xi Jinping</option>
-                <option value="3">Vladimir Putin</option>
-            </select>
-&nbsp&nbsp
-            <select id="indicator">
-                <option hidden selected>Select indicator</option>
-                <option value="1">CO2</option>
-            </select>
-            &nbsp&nbsp
-            <input type="submit" value="Get Data">
-        </form>
+    <div class="container">
+        <div class="leaders-filter">
+            <form>
+                <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
+                <br/>
+                Country:
+                <select id="countries">
+                    <option hidden selected>Select country</option>
+                    <option value="1">United States</option>
+                    <option value="2">Germany</option>
+                    <option value="3">France</option>
+                </select>
+    &nbsp&nbsp
+                Leader:
+                <select id="leaders">
+                    <option hidden selected>Select leader</option>
+                    <option value="1">Joe Biden</option>
+                    <option value="2">Xi Jinping</option>
+                    <option value="3">Vladimir Putin</option>
+                </select>
+    &nbsp&nbsp
+                Indicator:
+                <select id="indicator">
+                    <option hidden selected>Select indicator</option>
+                    <option value="1">CO2</option>
+                </select>
+                &nbsp&nbsp
+                <input type="submit" value="Get Data">
+            </form>
+        </div>
+        <div class="leaders-results">
+            <div id="leader">
+                <img id="leader-pic" src="../assets/media/Barack Obama.jpg" alt="Barack Obama" width="170" height="200">
+                <br/>
+                <p id="leader-name">Barack Obama</p>
+            </div>
+            <div id="promises">
+                <div id="promise1">
+                    <img src="../assets/media/check.png" alt="check" width="50" height="50">
+                    <p>Establish the first-ever national carbon pollution standards for power plants.</p>
+                </div>
+                <div id="promise2">
+                    <img src="../assets/media/check.png" alt="check" width="50" height="50">
+                    <p>Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
+                </div>
+                <div id="promise3">
+                    <img src="../assets/media/uncheck.jpg" alt="uncheck" width="50" height="50">
+                    <p>Cut back on carbon emissions from burning fossil fuels</p>
+                </div>
+            </div>
+        </div>
     </div>
+    
     
 </body>
 </html>
