@@ -13,9 +13,11 @@ countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola","Antigua &
 'Vatican City','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe']
 
 with open("./exampleCountry.html", "r") as general_file:
-    general_file = general_file.read()
+    general_file = general_file.readlines()
     for country in countries:
         with open ("countries/" + country + ".html", "w") as current_file:
-            current_text = general_file.replace("COUNTRY_NAME", country)
-            current_file.write(current_text)
-
+            for line in general_file:
+                # it country is in line, then this line should be removed as otherwise countries would show up as a select option when choosing a comparison country for themselves
+                if country not in line:
+                    line = line.replace("COUNTRY_NAME", country)
+                    current_file.write(line)
