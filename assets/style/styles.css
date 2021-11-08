@@ -151,6 +151,14 @@ header {
     color: white;
 }
 
+h2#countryHeader {
+    text-align: center;
+    font-weight: bold;
+    font-family:  Prata;
+    font-size: 40pt;
+    color: rgb(0, 0, 0);
+  }
+
 a{
     font-family: Prata;
     text-decoration: none;
