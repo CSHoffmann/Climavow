@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>People</title>
+    <title>Leaders</title>
 </head>
 <body>
     <!--navigation bar-->
@@ -19,7 +19,7 @@
             <li><a href="conferences.html">Conferences</a></li>
         </ul>
     </nav>
-    <video id="background-video" src="../assets/media/world leaders.mp4" width="1250" height="1000" autoplay loop muted></video>
+    <img id="background-image" src="https://www.wkbn.com/wp-content/uploads/sites/48/2020/06/america-protests-world-leaders.jpg?w=1280" width="1250" height="1000" alt="world_leaders">
 
     <div class="container">
         <div class="filter">
@@ -51,6 +51,7 @@
                 <input type="submit" value="Get Data">
             </form>
         </div>
+
         <div class="leaders-results">
             <div id="leader">
                 <img id="leader-pic" src="../assets/media/Barack Obama.jpg" alt="Barack Obama" width="170" height="200">
@@ -76,7 +77,7 @@
     
     
 
-    <div class="leaders-filter">
+    <div class="filter">
         <form>
             <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
             <select id="countries">
@@ -98,7 +99,7 @@
                 <option value="1">CO2</option>
             </select>
             &nbsp&nbsp
-            <input type="submit" value="Get Data">
+            <input type="submit" id="submit-btn" value="Get Data">
         </form>
     </div>
     
@@ -115,6 +116,52 @@
             });
         });
     });
+
+    //This is a work in progress
+    leaders = [
+        {
+            name: "Joe Biden",
+            country: "United States of America",
+            image: "https://image.cnbcfm.com/api/v1/image/106878527-1620223837055-106748412-1602881184740-biden.jpg?v=1620224062",
+            promises : [
+            {
+                promise: "Rejoin Paris Agreement",
+                checked : 1
+                },
+                {
+                    promise: "By 2030, reduce greenhouse gas emissions by half relative to 2005 levels",
+                    checked: 0
+                },
+                {
+                    promise: "Implement clean electricity standard that rewards utilities who switch to renewables and penalizes those who don’t",
+                    checked: 2
+                },
+            ]
+        },
+        {
+            name: "Barack Obama",
+            country: "United States of America",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/1200px-President_Barack_Obama.jpg",
+            promises : [
+            {
+                promise: "promise 1",
+                checked : 2
+                },
+                {
+                    promise: "promise 2",
+                    checked: 1
+                },
+                {
+                    promise: "promise 3",
+                    checked: 0
+                },
+            ]
+        }
+    ]
+    //..............................................................................
+
+    
+
     </script> 
 </body>
 </html>
