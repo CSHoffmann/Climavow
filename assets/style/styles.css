@@ -3,24 +3,22 @@
     margin: 0;
     padding: 0;
 }
+
 @font-face {
     font-family: Prata;
     src: url(../fonts/Prata/Prata-Regular.ttf);
 }
+
 @font-face {
     font-family: Lato-LightItalic;
     src: url(../fonts/Lato/Lato-LightItalic.ttf);
-}
-
-html{
-    height: 100%;
 }
 
 body{
     background-color: #FFFDF3;
 }
 
-img{
+#leader-pic{
     border-radius: 10px;
 }
 
@@ -94,7 +92,7 @@ input[type=submit]:hover{
 }
 
 
-/* Nav bar section*/
+/* Start of Navbar section*/
 nav {
     background-color: #fffdf3;
 }
@@ -124,6 +122,7 @@ nav {
     font-family: Prata;
     font-size: 40px;
 } 
+/*End of Navbar section */
 
 /* Background videos */
 #background-image{
@@ -165,7 +164,7 @@ a{
     color: black;
 }
 
-/* Map on countries page */
+/* Start of Map Section */
 svg {
     width: 900px;
     height: 400px;
@@ -183,6 +182,7 @@ fill: #de8581;
 transition: 0.6s;
 cursor: pointer;
 }
+/* End of Map section */
 
 /* Click to start button */
 button{
