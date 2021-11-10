@@ -13,44 +13,32 @@
     <nav>
         <ul class="navbar">
             <li><h1 id="logo">Climavow</h1></li>
-            <li><a href="/index.html">About</a></li>
+            <li><a href="../index.html">About</a></li>
             <li><a href="countries.html">Countries</a></li>
-            <li><a href="people.html">Leaders</a></li>
-            <li><a href="conferences.html">Conferences</a></li>
+            <li><a href="leaders.html">Leaders</a></li>
+            
         </ul>
     </nav>
-    <img id="background-image" src="https://www.wkbn.com/wp-content/uploads/sites/48/2020/06/america-protests-world-leaders.jpg?w=1280" width="1250" height="1000" alt="world_leaders">
+    <img class="background" src="https://www.wkbn.com/wp-content/uploads/sites/48/2020/06/america-protests-world-leaders.jpg?w=1280" width="1250" height="1000" alt="world_leaders">
 
     <div class="container">
         <div class="filter">
             <form>
                 <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
-                <br/>
-                Country:
-                <select id="countries">
-                    <option hidden selected>Select country</option>
-                    <option value="1">United States</option>
-                    <option value="2">Germany</option>
-                    <option value="3">France</option>
-                </select>
+                <h5 style=>Country</h5>
+                <select id="level1"></select>
     &nbsp&nbsp
-                Leader:
-                <select id="leaders">
-                    <option hidden selected>Select leader</option>
-                    <option value="1">Joe Biden</option>
-                    <option value="2">Xi Jinping</option>
-                    <option value="3">Vladimir Putin</option>
-                </select>
+                <h5 style=>Leader</h5>
+                <select id="level2"></select>
     &nbsp&nbsp
-                Indicator:
-                <select id="indicator">
-                    <option hidden selected>Select indicator</option>
-                    <option value="1">CO2</option>
-                </select>
+                <h5 style=>Select Indicator</h5>
+                <select id="level3"></select>
                 &nbsp&nbsp
-                <input type="submit" value="Get Data">
+                <input type="submit" id="submit-btn" value="Get Data">
             </form>
         </div>
+
+
 
         <div class="leaders-results">
             <div id="leader">
@@ -77,45 +65,12 @@
     
     
 
-    <div class="filter">
-        <form>
-            <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
-            <select id="countries">
-                <option hidden selected>Select leaders</option>
-                <option value="1" class="us" id="select1">United States</option>
-                <option value="2" class="gr" id="select2">Germany</option>
-                <option value="3" class="fr" id="select3">France</option>
-            </select>
-&nbsp&nbsp
-            <select id="leaders">
-                <option hidden selected>Select leader</option>
-                <option value="1" class="select us">Joe Biden</option>
-                <option value="2" class="select gr">Merkel</option>
-                <option value="3" class="select fr">Macron</option>
-            </select>
-&nbsp&nbsp
-            <select id="indicator">
-                <option hidden selected>Select indicator</option>
-                <option value="1">CO2</option>
-            </select>
-            &nbsp&nbsp
-            <input type="submit" id="submit-btn" value="Get Data">
-        </form>
-    </div>
+    <script src="dropdown.js"></script>
+
     
-   <script>
-       
-    $(document).ready(function () {    
-        var allOptions = $('#leaders option')
-        $('#countries').change(function () {
-            $('#leaders option').remove()
-            var classN = $('#countries option:selected').prop('class');
-            var opts = allOptions.filter('.' + classN);
-            $.each(opts, function (i, j) {
-                $(j).appendTo('#leaders');
-            });
-        });
-    });
+
+
+<script>
 
     //This is a work in progress
     leaders = [
