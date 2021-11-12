@@ -58,7 +58,7 @@ body{
 /* style for dropdown */
 .filter{
     font-family: Prata;
-    max-width: 350px;
+    width: 350px;
     margin: 110px 50px;
     border-radius: 10px;
     background-color: #F2DFDB;
@@ -154,11 +154,9 @@ header {
 
 h2#countryHeader {
     text-align: center;
-    font-weight: bold;
     font-family:  Prata;
-    font-size: 40pt;
-    color: rgb(0, 0, 0);
-  }
+    font-size: 36pt;
+}
 
 a{
     font-family: Prata;
