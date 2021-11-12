@@ -125,7 +125,7 @@ input[type=submit]:hover{
 } 
 /*End of Navbar section */
 
-/* Background videos and images */
+/* Start of Background videos and images */
 .background{
     object-fit: cover;
     width: 100%;
@@ -135,6 +135,7 @@ input[type=submit]:hover{
     left: 0;
     z-index: -1000;
 }
+/* End of Background videos and images */
 
 header {
     position:static;
@@ -166,12 +167,16 @@ a{
 }
 
 /* Start of Map Section */
+#map-container {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
 svg {
     width: 900px;
     height: 400px;
-    position: absolute;
-    top: 150px;
-    left: 360px;
+
 }
 svg path{
     fill: #de554e;
