@@ -58,7 +58,7 @@ body{
 /* style for dropdown */
 .filter{
     font-family: Prata;
-    max-width: 350px;
+    width: 350px;
     margin: 110px 50px;
     border-radius: 10px;
     background-color: #F2DFDB;
@@ -125,7 +125,7 @@ input[type=submit]:hover{
 } 
 /*End of Navbar section */
 
-/* Background videos and images */
+/* Start of Background videos and images */
 .background{
     object-fit: cover;
     width: 100%;
@@ -135,6 +135,7 @@ input[type=submit]:hover{
     left: 0;
     z-index: -1000;
 }
+/* End of Background videos and images */
 
 header {
     position:static;
@@ -153,11 +154,9 @@ header {
 
 h2#countryHeader {
     text-align: center;
-    font-weight: bold;
     font-family:  Prata;
-    font-size: 40pt;
-    color: rgb(0, 0, 0);
-  }
+    font-size: 36pt;
+}
 
 a{
     font-family: Prata;
@@ -166,12 +165,16 @@ a{
 }
 
 /* Start of Map Section */
+#map-container {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
 svg {
     width: 900px;
     height: 400px;
-    position: absolute;
-    top: 150px;
-    left: 360px;
+
 }
 svg path{
     fill: #de554e;
