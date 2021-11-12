@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
     <title>Welcome to Climavow!</title>
 </head>
 <body>
@@ -12,7 +14,7 @@
     <nav>
         <ul class="navbar">
             <li><h1 id="logo">Climavow</h1></li>
-            <li><a href="index.html">About</a></li>
+            <li><a href="./pages/about.html">About</a></li>
             <li><a href="./pages/countries.html">Countries</a></li>
             <li><a href="./pages/leaders.html">Leaders</a></li>
             
@@ -23,8 +25,15 @@
     <header class="header">
         <p id="header-text">
             Climavow makes it easy to track the climate promises that governments make so that we can hold them accountable.
-            <button>Click here to start!</button>
+            <input id="start-button" type="button" value="Click here to start!">
         </p>
     </header>
 </body>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#start-button").click(function(){
+            window.open("pages/leaders.html");
+        })
+    });
+</script>
 </html>

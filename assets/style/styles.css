@@ -189,7 +189,7 @@ cursor: pointer;
 /* End of Map section */
 
 /* Click to start button */
-button{
+#start-button{
     border:none;
     font-family: Prata;
     position:relative;
@@ -201,11 +201,11 @@ button{
     outline:none;
 }
 
-button:hover{
+#start-button:hover{
     background:#fff;
     color:orange;
 }
-button:before,button:after{
+#start-button:before,#start-button:after{
     content:'';
     position:absolute;
     top:0;
@@ -216,14 +216,14 @@ button:before,button:after{
     transition:400ms ease all;
 }
 
-button:after{
+#start-button:after{
     right:inherit;
     top:inherit;
     left:0;
     bottom:0;
 }
 
-button:hover:before,button:hover:after{
+#start-button:hover:before,#start-button:hover:after{
     width:100%;
     transition:800ms ease all;
 }
@@ -232,4 +232,17 @@ button:hover:before,button:hover:after{
     position: relative;
     left: 30px;
     width:30%;
+}
+
+/*Style for About box*/
+.about {
+    opacity: 0.7;
+    backdrop-filter: blur(10px);
+    background-color:#FFFDF3;
+    border-radius: 20px;
+    font-family: Prata;
+    max-width: 50%;
+    padding: 10px 20px;
+    margin-top: 10%;
+    margin-left: 25%;
 }
