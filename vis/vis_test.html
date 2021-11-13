@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <div id="map"></div>
+        <div id="bar"></div>
+        <div id="line"></div>
+
+        <script type="module">
+            import * as d3 from "https://cdn.skypack.dev/d3@7";
+            import MapVis from "./map.js";
+            import BarVis from "./bar.js";
+            import LineVis from "./line.js";
+
+            Promise.all([
+                d3.json("../data-raw/co2 emissions by country/data.json"),
+                d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+            ]).then(res => {
+                const [datasource, geojson] = res;
+                const cfg = {colorInterp: d3.interpolateInferno}
+
+                const map = MapVis("#map", datasource, geojson, cfg)
+                map.updateYear(1970)
+
+                const bar = BarVis("#bar", datasource, geojson, cfg)
+                bar.updateYear(1970)
+
+                const line = LineVis("#line", datasource, geojson, cfg)
+                line.updateCountry("USA")
+                line.updateCountry("CAN")
+            })
+        </script>
+    </body>
+
+</html>

@@ -8,23 +8,26 @@ if __name__ == "__main__":
         "date" : "",
         "title" : "",
         "url" : "",
+        "units" : "kt",
+        "years" : [1970, 2021]
     }
 
-    data = {}
+    data = []
     csv = pd.read_csv("./API_EN.ATM.CO2E.KT_DS2_en_csv_v2_3011692.csv", skiprows=4)
 
     for idx, row in csv.iterrows():
         row_data = {}
-        label = row["Country Code"]
-        rel_keys = ["Country Name"]
+        rel_keys = ["Country Code", "Country Name"]
 
         for key in chain(rel_keys, range(1970, 2021)):
-            row_data[key] = row[str(key)]
+            val = row[str(key)]
+            # needed or else these vals will be NaN in json, which is invalid
+            row_data[key] = val if pd.notna(val) else None 
 
-        data[label] = row_data
+        data.append(row_data)
     
 
-    json_str = json.dumps({"meta": meta, "data": data})
+    json_str = json.dumps({"meta": meta, "data": data}, indent=4, allow_nan=False)
     with open("./data.json", "w") as f:
         f.write(json_str)
 

@@ -6,10 +6,6 @@ Promise.all([
 	d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
 ]).then(res => {
 
-	const url = window.location.href;
-	const config = url.split("?")[1]
-	const opts = Object.fromEntries(config.split(",").map(o => o.split("=")))
-	console.log(opts);
 	const [text, geojson] = res; //get responses
 	const rows = d3.csvParse(text.split("\n").slice(4).join("\n"));
 	const countries = geojson.features.map(c => c.id);
