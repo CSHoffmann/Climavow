@@ -47,16 +47,16 @@
             </div>
             <div id="promises">
                 <div id="promise1">
-                    <img src="../assets/media/check.png" alt="check" width="50" height="50">
-                    <p>Establish the first-ever national carbon pollution standards for power plants.</p>
+                    <img id="check1" src="../assets/media/check.png" alt="check" width="50" height="50">
+                    <p id="promise_text1">Establish the first-ever national carbon pollution standards for power plants.</p>
                 </div>
                 <div id="promise2">
-                    <img src="../assets/media/check.png" alt="check" width="50" height="50">
-                    <p>Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
+                    <img id="check2" src="../assets/media/check.png" alt="check" width="50" height="50">
+                    <p id="promise_text2">Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
                 </div>
                 <div id="promise3">
-                    <img src="../assets/media/uncheck.jpg" alt="uncheck" width="50" height="50">
-                    <p>Cut back on carbon emissions from burning fossil fuels</p>
+                    <img id="check3" src="../assets/media/uncheck.jpg" alt="uncheck" width="50" height="50">
+                    <p id="promise_text3">Cut back on carbon emissions from burning fossil fuels</p>
                 </div>
             </div>
         </div>
@@ -65,9 +65,6 @@
     
 
     <script src="dropdown.js"></script>
-
-    
-
 
 <script>
 
@@ -93,28 +90,114 @@
             ]
         },
         {
-            name: "Barack Obama",
-            country: "United States of America",
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/1200px-President_Barack_Obama.jpg",
+
+            name: "Xi Jinping",
+            country: "China",
+            image: "https://en.wikipedia.org/wiki/Xi_Jinping#/media/File:Xi_Jinping_2019.jpg",
             promises : [
-            {
-                promise: "promise 1",
-                checked : 2
+                {
+                    promise: "Peak emissions by 2030, carbon-neutral by 2060",
+                    checked : 0
                 },
                 {
-                    promise: "promise 2",
-                    checked: 1
+                    promise: "No more building coal plants abroad",
+                    checked: 0
                 },
                 {
-                    promise: "promise 3",
+                    promise: "increase forests by 6 billion cubic meters",
                     checked: 0
                 },
             ]
-        }
+        },
+        {
+            name: "Vladimir Putin",
+            country: "Russia",
+            image: "https://en.wikipedia.org/wiki/Vladimir_Putin#/media/File:Vladimir_Putin_(2018-03-01)_03_(cropped).jpg",
+            promises : [
+                {
+                    promise: "“strive for” carbon-neutrality by 2060, not a firm promise (relies significantly on increasing estimates for how much CO2 Russia’s vast forests will absorb as opposed to promising more green energy)",
+                    checked : 0
+                },
+                {
+                    promise: "supports CO2 “cap and trade” scheme, opposed to carbon tax",
+                    checked: 1
+                },
+            ]
+        },
+        {
+            name: "Emmanuel Macron",
+            country: "France",
+            image: "https://en.wikipedia.org/wiki/Emmanuel_Macron#/media/File:Emmanuel_Macron_(cropped).jpg",
+            promises : [
+                {
+                    promise: "hold referendum to put climate action in French constitution",
+                    checked : 2
+                },
+                {
+                    promise: "carbon neutrality for France by 2050",
+                    checked: 0
+                },
+                {
+                    promise: "speed up development of renewable energy without abandoning nuclear",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Donald Trump",
+            country: "United States of America",
+            image: "https://en.wikipedia.org/wiki/Donald_Trump#/media/File:Donald_Trump_official_portrait.jpg",
+            promises : [
+                {
+                    promise: "Take US out of Paris agreement (done but reversed by Biden)",
+                    checked : 2
+                },
+            ]
+        },
+        {
+            name: "Narendra Modi",
+            country: "India",
+            image: "https://en.wikipedia.org/wiki/Narendra_Modi#/media/File:Narendra_Modi_2021.jpg",
+            promises : [
+                {
+                    promise: "50% of energy needs through renewables by 2030",
+                    checked : 0
+                },
+                {
+                    promise: "net-zero emissions by 2070",
+                    checked: 0
+                },
+            ]
+        },
     ]
     //..............................................................................
+    var $btn = $('#submit-btn');
+    var $name = $('#leader-name');
+    var $pic = $('#leader-pic');
+    var $_promises = $('#promises');
+    var $leader;
 
-    
+    $btn.click(function(){
+        leader = $('#level2').val();
+        leaders.forEach(element => {
+            if (element.name ==leader){
+                $name.text(element.name);
+                $pic.attr("src",element.image);
+                element.promises.forEach(function(item,i) {
+                    if (item.checked == 0){
+                        $('#check'+i).attr("src","https://icon-library.com/images/uncheck-icon/uncheck-icon-17.jpg");
+                    }   
+                    else if(item.checked==1){
+                        $('#check'+i).attr("src","https://upload.wikimedia.org/wikipedia/commons/c/c6/Sign-check-icon.png");
+                    }
+                    else{
+                        $('#check'+i).attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Button_Icon_Orange.svg/1024px-Button_Icon_Orange.svg.png");
+                    }
+                    $('#promise_text'+i).text(item.promise);
+                });
+            }
+        });    
+    });
 
     </script> 
 </body>
