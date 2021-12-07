@@ -1,12 +1,12 @@
 var mydata = [
     [],
-    ["United States","Joe Biden","CO2 Emissions"],
-    ["United States","Donald Trump","CO2 Emissions"],
-    ["United States","Barack Obama","Methane Emissions"],
-    ["Russia","Vladimir Putin","Nitrous Oxide Emissions"],
-    ["China","Xi Jinping","Nitrous Oxide Emissions"],
-    ["France","Emmanuel Macron","Nitrous Oxide Emissions"],
-    ["India"," Narendra Modi","Nitrous Oxide Emissions"],
+    ["United States","Joe Biden"],
+    ["United States","Donald Trump"],
+    ["United States","Barack Obama"],
+    ["Russia","Vladimir Putin"],
+    ["China","Xi Jinping"],
+    ["France","Emmanuel Macron"],
+    ["India"," Narendra Modi"]
 
    
    
