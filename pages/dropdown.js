@@ -3,18 +3,13 @@ var mydata = [
     ["United States","Joe Biden","CO2 Emissions"],
     ["United States","Donald Trump","CO2 Emissions"],
     ["United States","Barack Obama","Methane Emissions"],
-    ["United States","George W. Bush","Nitrous Oxide Emissions"],
-    ["Germany","Merkel","Nitrous Oxide Emissions"],
-    ["Germany","Chancelor2","Renewable Electricity"],
-    ["Germany","Chancelor3","Methane Emissions"],
-    ["Germany","Chancelor4","Methane Emissions"],
-    ["Germany","Chancelor5","Renewable Electricity"],
-    ["France","Macron","Nitrous Oxide Emissions"],
-    ["France","Macron","Renewable Electricity"],
-    ["France","Macron","CO2 Emissions"],
-    ["France","Sarkozy","Renewable Electricity"],
-    ["France","Sarkozy","CO2 Emissions"],
-    ["France","Sarkozy","Nitrous Oxide Emissions"]
+    ["Russia","Vladimir Putin","Nitrous Oxide Emissions"],
+    ["China","Xi Jinping","Nitrous Oxide Emissions"],
+    ["France","Emmanuel Macron","Nitrous Oxide Emissions"],
+    ["India"," Narendra Modi","Nitrous Oxide Emissions"],
+
+   
+   
 ];
 
 function makeDropDown(data,filtersAsArray,targetElement){

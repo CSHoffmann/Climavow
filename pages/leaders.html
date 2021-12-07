@@ -31,10 +31,8 @@
                 <h5>Leader</h5>
                 <select id="level2"></select>
     &nbsp&nbsp
-                <h5>Indicator</h5>
-                <select id="level3"></select>
-                &nbsp&nbsp
-                <input type="submit" id="submit-btn" value="Get Data">
+               
+                <input type="btn" id="submit-btn" value="Get Data" readonly>
             </form>
         </div>
 
@@ -69,11 +67,34 @@
 <script>
 
     //This is a work in progress
+
+
     leaders = [
+
+    {
+        name: "Barack Obama",
+        country: "United States of America",
+        image: "../assets/media/Barack Obama.jpg",
+        promises : [
         {
+            promise: "Rejoin Paris Agreement",
+            checked : 1
+            },
+            {
+                promise: "By 2030, reduce greenhouse gas emissions by half relative to 2005 levels",
+                checked: 0
+            },
+            {
+                promise: "Implement clean electricity standard that rewards utilities who switch to renewables and penalizes those who don’t",
+                checked: 2
+            },
+        ]
+    },
+
+    {
             name: "Joe Biden",
             country: "United States of America",
-            image: "https://image.cnbcfm.com/api/v1/image/106878527-1620223837055-106748412-1602881184740-biden.jpg?v=1620224062",
+            image: "../assets/media/Joe Biden.jpg",
             promises : [
             {
                 promise: "Rejoin Paris Agreement",
@@ -93,7 +114,7 @@
 
             name: "Xi Jinping",
             country: "China",
-            image: "https://en.wikipedia.org/wiki/Xi_Jinping#/media/File:Xi_Jinping_2019.jpg",
+            image: "../assets/media/Xi Jinping.jpg",
             promises : [
                 {
                     promise: "Peak emissions by 2030, carbon-neutral by 2060",
@@ -112,7 +133,7 @@
         {
             name: "Vladimir Putin",
             country: "Russia",
-            image: "https://en.wikipedia.org/wiki/Vladimir_Putin#/media/File:Vladimir_Putin_(2018-03-01)_03_(cropped).jpg",
+            image: "../assets/media/Vladimir Putin.jpg",
             promises : [
                 {
                     promise: "“strive for” carbon-neutrality by 2060, not a firm promise (relies significantly on increasing estimates for how much CO2 Russia’s vast forests will absorb as opposed to promising more green energy)",
@@ -127,7 +148,7 @@
         {
             name: "Emmanuel Macron",
             country: "France",
-            image: "https://en.wikipedia.org/wiki/Emmanuel_Macron#/media/File:Emmanuel_Macron_(cropped).jpg",
+            image: "../assets/media/Emmanuel Macron.jpg",
             promises : [
                 {
                     promise: "hold referendum to put climate action in French constitution",
@@ -146,7 +167,7 @@
         {
             name: "Donald Trump",
             country: "United States of America",
-            image: "https://en.wikipedia.org/wiki/Donald_Trump#/media/File:Donald_Trump_official_portrait.jpg",
+            image: "../assets/media/Donald Trump.jpg",
             promises : [
                 {
                     promise: "Take US out of Paris agreement (done but reversed by Biden)",
@@ -157,7 +178,7 @@
         {
             name: "Narendra Modi",
             country: "India",
-            image: "https://en.wikipedia.org/wiki/Narendra_Modi#/media/File:Narendra_Modi_2021.jpg",
+            image: "../assets/media/Narendra Modi.jpg",
             promises : [
                 {
                     promise: "50% of energy needs through renewables by 2030",
