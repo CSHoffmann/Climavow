@@ -6,14 +6,14 @@ if __name__ == "__main__":
     meta = {
         "source" : "",
         "date" : "",
-        "title" : "Carbon Dioxide Emissions",
+        "title" : "Methane Emissions",
         "url" : "",
         "units" : "kt",
         "years" : [1970, 2021]
     }
 
     data = []
-    csv = pd.read_csv("./API_EN.ATM.CO2E.KT_DS2_en_csv_v2_3011692.csv", skiprows=4)
+    csv = pd.read_csv("./API_EN.ATM.METH.KT.CE_DS2_en_csv_v2_3016440.csv", skiprows=4)
 
     for idx, row in csv.iterrows():
         row_data = {}
@@ -29,11 +29,4 @@ if __name__ == "__main__":
     json_str = json.dumps({"meta": meta, "data": data}, indent=4, allow_nan=False)
     with open("./data.json", "w") as f:
         f.write(json_str)
-
-
-
-
-
-
-
 
