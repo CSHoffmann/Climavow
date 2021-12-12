@@ -4,10 +4,10 @@ import pandas as pd
 
 if __name__ == "__main__":
     meta = {
-        "source" : "",
+        "source" : "World Bank",
         "date" : "",
         "title" : "Carbon Dioxide Emissions",
-        "url" : "",
+        "url" : "https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2018&start=1960&view=chart",
         "units" : "kt",
         "years" : [1970, 2021]
     }

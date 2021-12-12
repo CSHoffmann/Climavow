@@ -4,16 +4,16 @@ import pandas as pd
 
 if __name__ == "__main__":
     meta = {
-        "source" : "",
+        "source" : "World Bank",
         "date" : "",
         "title" : "Methane Emissions",
-        "url" : "",
+        "url" : "https://data.worldbank.org/indicator/EN.ATM.NOXE.KT?end=2018&start=1960&view=chart",
         "units" : "kt",
         "years" : [1970, 2021]
     }
 
     data = []
-    csv = pd.read_csv("./API_EN.ATM.METH.KT.CE_DS2_en_csv_v2_3016440.csv", skiprows=4)
+    csv = pd.read_csv("./API_EN.ATM.NOXE.KT.CE_DS2_en_csv_v2_3016455.csv", skiprows=4)
 
     for idx, row in csv.iterrows():
         row_data = {}

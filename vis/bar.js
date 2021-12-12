@@ -21,7 +21,7 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const svg = d3.select(visQuerySelector)
         .append("svg")
-        .attr("id", "bar")
+        .classed("bar", true)
         .attr("width", cfg.width)
         .attr("height", cfg.height)
         .append("g")
@@ -40,8 +40,15 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const yAxis = svg.append("g")
         .classed("yaxis", true)
+    
+    const title = svg.append("text")
+            .classed("title", true)
+            .attr("x", cfg.width/2)
+            .attr("y", 20)
+            .attr("text-anchor", "middle")
 
     const updateYear = (year) => {
+        title.text(`${year} ${meta.title} (${meta.units})`)
         const t = d3.transition()
             .duration(1000);
 

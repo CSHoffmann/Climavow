@@ -2,6 +2,7 @@ import * as d3 from "https://cdn.skypack.dev/d3@7";
 
 export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
     const {meta, data} = datasource;
+    console.log(meta)
     const prefix = selector => `${visQuerySelector} ${selector}`
 
     const dataIndexMap = new Map(data.map( (x, i) => [x["Country Code"], i] ))
@@ -30,9 +31,9 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
     //  scale svg
     d3.select(visQuerySelector)
         .append("div")
-        .attr("id", "mapdiv")
+        .classed("mapdiv", true)
         .append("svg")
-            .attr("id", "map")
+            .classed("map", true)
             .attr("width", cfg.sideLen)
             .attr("height", cfg.sideLen)
             .selectAll("path")
@@ -64,9 +65,9 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
     
     const scaledata = Array.from(Array(cfg.sideLen).keys())
 
-    const scalesel = d3.select(prefix("div#mapdiv"))
+    const scalesel = d3.select(prefix("div.mapdiv"))
         .append("svg")
-            .attr("id", "mapscale")
+            .classed("mapscale", true)
             .attr("width", cfg.legendWidth)
             .attr("height", cfg.sideLen)
             .selectAll("rect")
@@ -103,16 +104,17 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
         .attr("class", d => `scalelabel scalelabel-${d}`)
         .style("display", "none")
     
+    const title = d3.select(prefix("svg.map"))
+        .append("text")
+            .classed("title", true)
+            .attr("x", cfg.sideLen/2)
+            .attr("y", 20)
+            .attr("text-anchor", "middle")
 
-
-    d3.select(prefix("div#controls"))
-        .append("span")
-            .classed("sliderlabel", true)
-            .text(1970)
 
     const updateYear = (year) => {
+        title.text(`${year} ${meta.title} (${meta.units})`)
         const max_val = d3.max(data, d => d[year]);
-        console.log(max_val); //TODO seems like a bug not sure
         const colorScale = cfg.scaleType() //this MUST be symlog for the domain to include 0
             .domain([0, max_val*1.1])
             .range([0, 1])
@@ -121,7 +123,7 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
         const t = d3.transition()
             .duration(1000);
 
-        d3.select(prefix("svg#map"))
+        d3.select(prefix("svg.map"))
             .selectAll("path")
             .transition(t)
             .attr("fill", d => {
@@ -141,6 +143,7 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
             .text(d => {
                 return Math.trunc(colorScale.invert(scaleScale(d))) + " " + meta.units
             })
+
     }
 
     const hide = () => d3.select(visQuerySelector).style("display", "none")

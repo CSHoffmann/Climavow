@@ -48,12 +48,19 @@ export default function LineVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const path = svg.append("path")
 
+    const title = svg.append("text")
+            .classed("title", true)
+            .attr("x", cfg.width/2)
+            .attr("y", 20)
+            .attr("text-anchor", "middle")
+
     const updateCountry = countryCode => {
         const idx = dataIndexMap.get(countryCode)
+        title.text(`${meta.title} - ${data[idx]["Country Name"]} (${meta.units})`)
         const lineData = Object.entries(data[idx]).filter(([key, _]) => key.length === 4)
             .map( ([year, val]) => [dateParser(year), val] )
         
-        yScale.domain(d3.extent(lineData, ([year, val]) => val))
+        yScale.domain(d3.extent(lineData, ([year, val]) => val*1.2))
         yAxis.call(d3.axisLeft(yScale))
 
         const t = d3.transition()

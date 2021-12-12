@@ -6,6 +6,22 @@
     </head>
 
     <body>
+        <select id="datasource">
+            <option value="0">Carbon Dioxide Emissions</option>
+            <option value="1">Methane Emissions</option>
+            <option value="2">Nitrous Oxide Emissions</option>
+        </select>
+
+        <select id="charttype">
+            <option value="0">Map</option>
+            <option value="1">Bar Chart</option>
+            <option value="2">Line Chart</option>
+        </select>
+
+        <select id="year">
+        </select>
+        <select id="country">
+        </select>
         <div id="map"></div>
         <div id="bar"></div>
         <div id="line"></div>
@@ -17,19 +33,45 @@
             import LineVis from "./line.js";
 
             Promise.all([
+                d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
                 d3.json("../data-raw/co2 emissions by country/data.json"),
-                d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+                d3.json("../data-raw/methane emissions/data.json"),
+                d3.json("../data-raw/nitrous oxide emissions/data.json"),
             ]).then(res => {
-                const [datasource, geojson] = res;
+                const [geojson, co2, methane, n2o] = res;
+                const {_, data} = co2;
+                const countryNames = data.map(x => [x["Country Name"], x["Country Code"]])
+                const years = Object.keys(data[0]).filter(x => !isNaN(x))
+
+                d3.select("#year")
+                    .on("change")
+                    .selectAll("option")
+                        .data(years)
+                        .enter()
+                            .append("option")
+                                .attr("value", d => d)
+                                .text(d => d)
+
+                d3.select("#country")
+                    .selectAll("option")
+                        .data(countryNames)
+                        .enter()
+                            .append("option")
+                                .attr("value", ([name, code]) => code)
+                                .text(([name, code]) => name)
+
+
+
+
                 const cfg = {colorInterp: d3.interpolateInferno}
 
-                const map = MapVis("#map", datasource, geojson, cfg)
+                const map = MapVis("#map", co2, geojson, cfg)
                 map.updateYear(1970)
 
-                const bar = BarVis("#bar", datasource, geojson, cfg)
+                const bar = BarVis("#bar", co2, geojson, cfg)
                 bar.updateYear(1970)
 
-                const line = LineVis("#line", datasource, geojson, cfg)
+                const line = LineVis("#line", co2, geojson, cfg)
                 line.updateCountry("USA")
             })
         </script>
