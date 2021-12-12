@@ -8,16 +8,22 @@
     <title>Countries</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1 id="logo"><a href="../index.html">Climavow</a></h1>
+
     <!--navigation bar-->
     <nav>
-        <ul class="navbar">
-            <li><h1 id="logo"><a href="../index.html">Climavow</a></h1></li>
+        
+        <ul id="menuList">
             <li><a href="about.html">About</a></li>
             <li><a href="countries.html">Countries</a></li>
             <li><a href="leaders.html">Leaders</a></li>
-         
+            
         </ul>
     </nav>
+    <img src="../assets/media/menu.png" class="menu-icon" onclick="togglemenu()">
+
+    </div>
 
 <?xml version="1.0"?>
 <!--
@@ -51,7 +57,7 @@ THE SOFTWARE.
 
 <div id="map-container">
 
-    <div class="filter">
+    <div class="filter2">
         <form>
             <h4 style="text-align: center;">Click on the map or search below for climate data by country.</h4>&nbsp&nbsp
             <select id="countries">
@@ -1899,6 +1905,7 @@ THE SOFTWARE.
 
 </div>
 
+<script src="navresp.js"></script>
 
 </body>
 </html>

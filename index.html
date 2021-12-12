@@ -10,16 +10,22 @@
     <title>Welcome to Climavow!</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1 id="logo"><a href="../index.html">Climavow</a></h1>
+
     <!--navigation bar-->
     <nav>
-        <ul class="navbar">
-            <li><h1 id="logo"><a href="index.html">Climavow</a></h1></li>
-            <li><a href="./pages/about.html">About</a></li>
-            <li><a href="./pages/countries.html">Countries</a></li>
-            <li><a href="./pages/leaders.html">Leaders</a></li>
+        
+        <ul id="menuList">
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/countries.html">Countries</a></li>
+            <li><a href="pages/leaders.html">Leaders</a></li>
             
         </ul>
     </nav>
+    <img src="../assets/media/menu.png" class="menu-icon" onclick="togglemenu()">
+
+    </div>
 
     <video class="background" src="./assets/media/Dont Set Our World on Fire Protest Sign.mp4" width="1250" height="1000" autoplay loop muted></video>
     <header class="header">
@@ -36,4 +42,6 @@
         })
     });
 </script>
+<script src="pages/navresp.js"></script>
+
 </html>

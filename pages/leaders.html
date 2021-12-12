@@ -6,59 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Leaders</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1 id="logo"><a href="../index.html">Climavow</a></h1>
+
     <!--navigation bar-->
     <nav>
-        <ul class="navbar">
-            <li><h1 id="logo"><a href="../index.html">Climavow</a></h1></li>
+        
+        <ul id="menuList">
             <li><a href="about.html">About</a></li>
             <li><a href="countries.html">Countries</a></li>
             <li><a href="leaders.html">Leaders</a></li>
             
         </ul>
     </nav>
+    <img src="../assets/media/menu.png" class="menu-icon" onclick="togglemenu()">
+
+    </div>
+<div class="container">
+
     <img class="background" src="https://www.wkbn.com/wp-content/uploads/sites/48/2020/06/america-protests-world-leaders.jpg?w=1280" width="1250" height="1000" alt="world_leaders">
 
-    <div class="container">
-        <div class="filter">
-            <form>
-                <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
-                <h5>Country</h5>
-                <select id="level1"></select>
-    &nbsp&nbsp
-                <h5>Leader</h5>
-                <select id="level2"></select>
-    &nbsp&nbsp
-               
-                <input type="btn" id="submit-btn" value="Get Data" readonly>
-            </form>
+    <div class="row">
+        <div class="col-1">
+            <div class="filter">
+                <form>
+                    <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
+                    <h5>Country</h5>
+                    <select id="level1"></select>
+        &nbsp&nbsp
+                    <h5>Leader</h5>
+                    <select id="level2"></select>
+        &nbsp&nbsp
+                   
+                    <input type="btn" id="submit-btn" value="Get Data" readonly>
+                </form>
+            </div>        
         </div>
-
-
-        <div class="leaders-results">
-            <div id="leader">
-                <img id="leader-pic" src="../assets/media/Barack Obama.jpg" alt="Barack Obama" width="170" height="200">
-                <br/>
-                <p id="leader-name">Barack Obama</p>
-            </div>
-            <div id="promises">
-                <div id="promise1">
-                    <img id="check1" src="../assets/media/check.png" alt="check" width="50" height="50">
-                    <p id="promise_text1">Establish the first-ever national carbon pollution standards for power plants.</p>
+        <div class="col-2">
+            <div class="leaders-results">
+                <div id="leader">
+                    <img id="leader-pic" src="../assets/media/Barack Obama.jpg" alt="Barack Obama" width="170" height="200">
+                    <br/>
+                    <p id="leader-name">Barack Obama</p>
                 </div>
-                <div id="promise2">
-                    <img id="check2" src="../assets/media/check.png" alt="check" width="50" height="50">
-                    <p id="promise_text2">Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
+                <div id="promises">
+                    <div id="promise1">
+                        <img id="check1" src="../assets/media/check.png" alt="check" width="50" height="50">
+                        <p id="promise_text1">Establish the first-ever national carbon pollution standards for power plants.</p>
+                    </div>
+                    <div id="promise2">
+                        <img id="check2" src="../assets/media/check.png" alt="check" width="50" height="50">
+                        <p id="promise_text2">Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
+                    </div>
+                    <div id="promise3">
+                        <img id="check3" src="../assets/media/uncheck.jpg" alt="uncheck" width="50" height="50">
+                        <p id="promise_text3">Cut back on carbon emissions from burning fossil fuels</p>
+                    </div>
                 </div>
-                <div id="promise3">
-                    <img id="check3" src="../assets/media/uncheck.jpg" alt="uncheck" width="50" height="50">
-                    <p id="promise_text3">Cut back on carbon emissions from burning fossil fuels</p>
-                </div>
-            </div>
+            </div>        
         </div>
     </div>
+</div>
     
     
 
@@ -221,5 +233,8 @@
     });
 
     </script> 
+    <script src="navresp.js"></script>
+
+    
 </body>
 </html>
