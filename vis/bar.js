@@ -47,6 +47,17 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
             .attr("y", 20)
             .attr("text-anchor", "middle")
 
+    
+    const sourcetext = d3.select(prefix("svg"))
+        .append("a")
+            .attr("href", meta.url)
+            .append("text")
+                .attr("x", 0)
+                .attr("y", 20)
+                .attr("font-size", "6pt")
+                .classed("url", true)
+                .text(`Source: ${meta.source}`)
+
     const updateYear = (year) => {
         title.text(`${year} ${meta.title} (${meta.units})`)
         const t = d3.transition()
