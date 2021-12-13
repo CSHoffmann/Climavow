@@ -172,17 +172,17 @@ a{
     margin-top: 25px;
 }
 
-svg {
+svg.bigmap {
     width: 900px;
     height: 400px;
 
 }
-svg path{
+svg.bigmap path{
     fill: #de554e;
     stroke: #FFFDF3;
     stroke-width: .25
 }
-svg path:hover{
+svg.bigmap path:hover{
 fill: #de8581;
 transition: 0.6s;
 cursor: pointer;

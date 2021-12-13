@@ -124,7 +124,7 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
         title.text(`${year} ${meta.title} (${meta.units})`)
         const max_val = d3.max(data, d => d[year]);
         const colorScale = cfg.scaleType() //this MUST be symlog for the domain to include 0
-            .domain([0, max_val*1.1])
+            .domain([0, max_val])
             .range([0, 1])
 
 

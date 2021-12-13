@@ -1,5 +1,5 @@
 import * as d3 from "https://cdn.skypack.dev/d3@7";
-export default function VisManager(datasets, fn_args, _dataset=0, _vistype=0) {
+export default function VisManager(selector, datasets, fn_args, initial_country="USA", _dataset=0, _vistype=0) {
     let dataset = _dataset
     let vistype = _vistype
     let vizs = []
@@ -11,11 +11,11 @@ export default function VisManager(datasets, fn_args, _dataset=0, _vistype=0) {
             let inter = [];
             for (const [fn, gj, cfg] of fn_args) {
                 const vqs = `d${i}v${j}`
-                d3.select("#vis")
+                d3.select(selector)
                     .append("div")
                     .classed(vqs, true)
 
-                const v = fn("." + vqs, ds, gj, cfg)
+                const v = fn(`${selector} .${vqs}`, ds, gj, cfg)
                 inter.push(v)
                 j++
             }
@@ -52,8 +52,8 @@ export default function VisManager(datasets, fn_args, _dataset=0, _vistype=0) {
     }
 
     construct()
-    updateYear(1970)
-    updateCountry("USA")
+    updateYear(2018)
+    updateCountry(initial_country)
     render()
     return {construct, updateYear, updateCountry, updateDataset, updateVistype}
 }
