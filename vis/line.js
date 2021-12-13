@@ -48,12 +48,29 @@ export default function LineVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const path = svg.append("path")
 
+    const title = svg.append("text")
+            .classed("title", true)
+            .attr("x", cfg.width/2)
+            .attr("y", 20)
+            .attr("text-anchor", "middle")
+
+    const sourcetext = d3.select(prefix("svg"))
+        .append("a")
+            .attr("href", meta.url)
+            .append("text")
+                .attr("x", 0)
+                .attr("y", 20)
+                .attr("font-size", "6pt")
+                .classed("url", true)
+                .text(`Source: ${meta.source}`)
+
     const updateCountry = countryCode => {
         const idx = dataIndexMap.get(countryCode)
+        title.text(`${meta.title} - ${data[idx]["Country Name"]} (${meta.units})`)
         const lineData = Object.entries(data[idx]).filter(([key, _]) => key.length === 4)
             .map( ([year, val]) => [dateParser(year), val] )
         
-        yScale.domain(d3.extent(lineData, ([year, val]) => val))
+        yScale.domain(d3.extent(lineData, ([year, val]) => val*1.2))
         yAxis.call(d3.axisLeft(yScale))
 
         const t = d3.transition()
@@ -76,5 +93,7 @@ export default function LineVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const show = () => d3.select(visQuerySelector).style("display", "initial")
 
-    return {updateCountry, hide, show};
+    const updateYear = () => null
+
+    return {updateCountry, updateYear, hide, show};
 }

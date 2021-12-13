@@ -21,7 +21,7 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const svg = d3.select(visQuerySelector)
         .append("svg")
-        .attr("id", "bar")
+        .classed("bar", true)
         .attr("width", cfg.width)
         .attr("height", cfg.height)
         .append("g")
@@ -40,8 +40,26 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const yAxis = svg.append("g")
         .classed("yaxis", true)
+    
+    const title = svg.append("text")
+            .classed("title", true)
+            .attr("x", cfg.width/2)
+            .attr("y", 20)
+            .attr("text-anchor", "middle")
+
+    
+    const sourcetext = d3.select(prefix("svg"))
+        .append("a")
+            .attr("href", meta.url)
+            .append("text")
+                .attr("x", 0)
+                .attr("y", 20)
+                .attr("font-size", "6pt")
+                .classed("url", true)
+                .text(`Source: ${meta.source}`)
 
     const updateYear = (year) => {
+        title.text(`${year} ${meta.title} (${meta.units})`)
         const t = d3.transition()
             .duration(1000);
 
@@ -49,6 +67,7 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
 
         let vals = Array.from(data.values()).sort((a, b) => +a[year] < +b[year] ? 1 : -1)
         const topten = vals.slice(0, 10)
+        console.log(topten)
 
         x.domain(topten.map(d => d["Country Name"]))
         y.domain([0, maxval])
@@ -78,6 +97,8 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
     const hide = () => d3.select(visQuerySelector).style("display", "none")
 
     const show = () => d3.select(visQuerySelector).style("display", "initial")
+    
+    const updateCountry = () => null;
 
-    return {updateYear, hide, show}
+    return {updateYear, updateCountry, hide, show}
 }
