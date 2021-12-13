@@ -6,95 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Leaders</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1 id="logo"><a href="../index.html">Climavow</a></h1>
+
     <!--navigation bar-->
     <nav>
-        <ul class="navbar">
-            <li><h1 id="logo"><a href="../index.html">Climavow</a></h1></li>
+        
+        <ul id="menuList">
             <li><a href="about.html">About</a></li>
             <li><a href="countries.html">Countries</a></li>
             <li><a href="leaders.html">Leaders</a></li>
             
         </ul>
     </nav>
+    <img src="../assets/media/menu.png" class="menu-icon" onclick="togglemenu()">
+
+    </div>
+<div class="container">
+
     <img class="background" src="https://www.wkbn.com/wp-content/uploads/sites/48/2020/06/america-protests-world-leaders.jpg?w=1280" width="1250" height="1000" alt="world_leaders">
 
-    <div class="container">
-        <div class="filter">
-            <form>
-                <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
-                <h5>Country</h5>
-                <select id="level1"></select>
-    &nbsp&nbsp
-                <h5>Leader</h5>
-                <select id="level2"></select>
-    &nbsp&nbsp
-               
-                <input type="btn" id="submit-btn" value="Get Data" readonly>
-            </form>
+    <div class="row">
+        <div class="col-1">
+            <div class="filter">
+                <form>
+                    <h4 style="text-align: center;">Search for the person of interest to view their climate promises/progress.</h4>&nbsp&nbsp
+                    <h5>Country</h5>
+                    <select id="level1"></select>
+        &nbsp&nbsp
+                    <h5>Leader</h5>
+                    <select id="level2"></select>
+        &nbsp&nbsp
+                   
+                    <input type="btn" id="submit-btn" value="Get Data" readonly>
+                </form>
+            </div>        
         </div>
-
-
-        <div class="leaders-results">
-            <div id="leader">
-                <img id="leader-pic" src="../assets/media/Barack Obama.jpg" alt="Barack Obama" width="170" height="200">
-                <br/>
-                <p id="leader-name">Barack Obama</p>
-            </div>
-            <div id="promises">
-                <div id="promise1">
-                    <img id="check1" src="../assets/media/check.png" alt="check" width="50" height="50">
-                    <p id="promise_text1">Establish the first-ever national carbon pollution standards for power plants.</p>
+        <div class="col-2">
+            <div class="leaders-results">
+                <div id="leader">
+                    <img id="leader-pic" src="../assets/media/Barack Obama.jpg" alt="Barack Obama" width="170" height="200">
+                    <br/>
+                    <p id="leader-name">Barack Obama</p>
                 </div>
-                <div id="promise2">
-                    <img id="check2" src="../assets/media/check.png" alt="check" width="50" height="50">
-                    <p id="promise_text2">Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
+                <div id="promises">
+                    <div id="promise1">
+                        <img id="check1" class="check" src="../assets/media/check.png">
+                        <p id="promise_text1">Establish the first-ever national carbon pollution standards for power plants.</p>
+                    </div>
+                    <div id="promise2">
+                        <img id="check2" class="check" src="../assets/media/check.png">
+                        <p id="promise_text2">Establish new standards for cleaner gasoline and vehicles to reduce harmful air pollution</p>
+                    </div>
+                    <div id="promise3">
+                        <img id="check3" class="check" src="../assets/media/check.png">
+                        <p id="promise_text3">Cut back on carbon emissions from burning fossil fuels</p>
+                    </div>
                 </div>
-                <div id="promise3">
-                    <img id="check3" src="../assets/media/uncheck.jpg" alt="uncheck" width="50" height="50">
-                    <p id="promise_text3">Cut back on carbon emissions from burning fossil fuels</p>
-                </div>
-            </div>
+            </div>        
         </div>
     </div>
+</div>
     
-    
-
     <script src="dropdown.js"></script>
 
-<script>
+    <script>
 
-    //This is a work in progress
+        //This is a work in progress
 
 
-    leaders = [
-
-    {
-        name: "Barack Obama",
-        country: "United States of America",
-        image: "../assets/media/Barack Obama.jpg",
-        promises : [
-        {
-            promise: "Rejoin Paris Agreement",
-            checked : 1
-            },
-            {
-                promise: "By 2030, reduce greenhouse gas emissions by half relative to 2005 levels",
-                checked: 0
-            },
-            {
-                promise: "Implement clean electricity standard that rewards utilities who switch to renewables and penalizes those who don’t",
-                checked: 2
-            },
-        ]
-    },
-
-    {
-            name: "Joe Biden",
+        leaders = [
+/*         {
+            name: "Barack Obama",
             country: "United States of America",
-            image: "../assets/media/Joe Biden.jpg",
+            image: "../assets/media/Barack Obama.jpg",
             promises : [
             {
                 promise: "Rejoin Paris Agreement",
@@ -109,117 +98,156 @@
                     checked: 2
                 },
             ]
-        },
+        }, */
         {
+                name: "Joe Biden",
+                country: "United States of America",
+                image: "../assets/media/Joe Biden.jpg",
+                promises : [
+                {
+                    promise: "Rejoin Paris Agreement",
+                    checked : 1
+                    },
+                    {
+                        promise: "By 2030, reduce greenhouse gas emissions by half relative to 2005 levels",
+                        checked: 0
+                    },
+                    {
+                        promise: "Implement clean electricity standard that rewards utilities who switch to renewables and penalizes those who don’t",
+                        checked: 2
+                    },
+                ]
+            },
+            {
 
-            name: "Xi Jinping",
-            country: "China",
-            image: "../assets/media/Xi Jinping.jpg",
-            promises : [
-                {
-                    promise: "Peak emissions by 2030, carbon-neutral by 2060",
-                    checked : 0
-                },
-                {
-                    promise: "No more building coal plants abroad",
-                    checked: 0
-                },
-                {
-                    promise: "increase forests by 6 billion cubic meters",
-                    checked: 0
-                },
-            ]
-        },
-        {
-            name: "Vladimir Putin",
-            country: "Russia",
-            image: "../assets/media/Vladimir Putin.jpg",
-            promises : [
-                {
-                    promise: "“strive for” carbon-neutrality by 2060, not a firm promise (relies significantly on increasing estimates for how much CO2 Russia’s vast forests will absorb as opposed to promising more green energy)",
-                    checked : 0
-                },
-                {
-                    promise: "supports CO2 “cap and trade” scheme, opposed to carbon tax",
-                    checked: 1
-                },
-            ]
-        },
-        {
-            name: "Emmanuel Macron",
-            country: "France",
-            image: "../assets/media/Emmanuel Macron.jpg",
-            promises : [
-                {
-                    promise: "hold referendum to put climate action in French constitution",
-                    checked : 2
-                },
-                {
-                    promise: "carbon neutrality for France by 2050",
-                    checked: 0
-                },
-                {
-                    promise: "speed up development of renewable energy without abandoning nuclear",
-                    checked: 0
-                },
-            ]
-        },
-        {
-            name: "Donald Trump",
-            country: "United States of America",
-            image: "../assets/media/Donald Trump.jpg",
-            promises : [
-                {
-                    promise: "Take US out of Paris agreement (done but reversed by Biden)",
-                    checked : 2
-                },
-            ]
-        },
-        {
-            name: "Narendra Modi",
-            country: "India",
-            image: "../assets/media/Narendra Modi.jpg",
-            promises : [
-                {
-                    promise: "50% of energy needs through renewables by 2030",
-                    checked : 0
-                },
-                {
-                    promise: "net-zero emissions by 2070",
-                    checked: 0
-                },
-            ]
-        },
-    ]
-    //..............................................................................
-    var $btn = $('#submit-btn');
-    var $name = $('#leader-name');
-    var $pic = $('#leader-pic');
-    var $_promises = $('#promises');
-    var $leader;
+                name: "Xi Jinping",
+                country: "China",
+                image: "../assets/media/Xi Jinping.jpg",
+                promises : [
+                    {
+                        promise: "Peak emissions by 2030, carbon-neutral by 2060",
+                        checked : 0
+                    },
+                    {
+                        promise: "No more building coal plants abroad",
+                        checked: 0
+                    },
+                    {
+                        promise: "increase forests by 6 billion cubic meters",
+                        checked: 0
+                    },
+                ]
+            },
+            {
+                name: "Vladimir Putin",
+                country: "Russia",
+                image: "../assets/media/Vladimir Putin.jpg",
+                promises : [
+                    {
+                        promise: "“strive for” carbon-neutrality by 2060, not a firm promise (relies significantly on increasing estimates for how much CO2 Russia’s vast forests will absorb as opposed to promising more green energy)",
+                        checked : 0
+                    },
+                    {
+                        promise: "supports CO2 “cap and trade” scheme, opposed to carbon tax",
+                        checked: 1
+                    },
+                ]
+            },
+            {
+                name: "Emmanuel Macron",
+                country: "France",
+                image: "../assets/media/Emmanuel Macron.jpg",
+                promises : [
+                    {
+                        promise: "hold referendum to put climate action in French constitution",
+                        checked : 2
+                    },
+                    {
+                        promise: "carbon neutrality for France by 2050",
+                        checked: 0
+                    },
+                    {
+                        promise: "speed up development of renewable energy without abandoning nuclear",
+                        checked: 0
+                    },
+                ]
+            },
+            {
+                name: "Donald Trump",
+                country: "United States of America",
+                image: "../assets/media/Donald Trump.jpg",
+                promises : [
+                    {
+                        promise: "Take US out of Paris agreement (done but reversed by Biden)",
+                        checked : 2
+                    },
+                ]
+            },
+            {
+                name: "Narendra Modi",
+                country: "India",
+                image: "../assets/media/Narendra Modi.jpg",
+                promises : [
+                    {
+                        promise: "50% of energy needs through renewables by 2030",
+                        checked : 0
+                    },
+                    {
+                        promise: "net-zero emissions by 2070",
+                        checked: 0
+                    },
+                ]
+            },
+        ]
+        //..............................................................................
+        var $btn = $('#submit-btn');
+        var $name = $('#leader-name');
+        var $pic = $('#leader-pic');
+        var $promises = $('#promises');
+        var $leader;
 
-    $btn.click(function(){
-        leader = $('#level2').val();
-        leaders.forEach(element => {
-            if (element.name ==leader){
-                $name.text(element.name);
-                $pic.attr("src",element.image);
-                element.promises.forEach(function(item,i) {
-                    if (item.checked == 0){
-                        $('#check'+i).attr("src","https://icon-library.com/images/uncheck-icon/uncheck-icon-17.jpg");
-                    }   
-                    else if(item.checked==1){
-                        $('#check'+i).attr("src","https://upload.wikimedia.org/wikipedia/commons/c/c6/Sign-check-icon.png");
-                    }
-                    else{
-                        $('#check'+i).attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Button_Icon_Orange.svg/1024px-Button_Icon_Orange.svg.png");
-                    }
-                    $('#promise_text'+i).text(item.promise);
-                });
-            }
-        });    
-    });
+        $btn.click(function() {
+            leader = $('#level2').val();
 
+            leaders.forEach(element => {
+                if(element.name == leader){
+
+                    promises.innerHTML = ""; // erases html promises elements
+
+                    $name.text(element.name) // update leader name
+                    $pic.attr("src", element.image) // update leader pic
+
+                    // create new div for promises, each div contains check image and promise text
+                    element.promises.forEach(element => {
+                        let div = document.createElement("div"); // creates div for each promise
+
+                        // create img and applies correct check mark
+                        let checkImg = document.createElement("img");
+                        if(element.checked == 0){
+                            checkImg.src = "https://icon-library.com/images/uncheck-icon/uncheck-icon-17.jpg"
+                        }
+                        else if(element.checked == 1){
+                            checkImg.src = "https://upload.wikimedia.org/wikipedia/commons/c/c6/Sign-check-icon.png"
+                        }
+                        else{
+                            checkImg.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Button_Icon_Orange.svg/1024px-Button_Icon_Orange.svg.png"
+                        }
+                        checkImg.classList.add("check")
+                        div.append(checkImg) 
+
+                        // creates p and adds promise text
+                        let promiseText = document.createElement("p");
+                        promiseText.innerHTML = element.promise
+                        div.append(promiseText)
+
+                        $promises.append(div); // append the individual promise div to "promises" list section
+                    });
+                }
+            })
+        });
     </script> 
+    <script src="navresp.js"></script>
+
+    
 </body>
 </html>

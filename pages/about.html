@@ -8,15 +8,22 @@
     <title>About Us</title>
 </head>
 <body>
+    <div class="navbar">
+        <h1 id="logo"><a href="../index.html">Climavow</a></h1>
+
     <!--navigation bar-->
     <nav>
-        <ul class="navbar">
-            <li><h1 id="logo"><a href="../index.html">Climavow</a></h1></li>
+        
+        <ul id="menuList">
             <li><a href="about.html">About</a></li>
             <li><a href="countries.html">Countries</a></li>
             <li><a href="leaders.html">Leaders</a></li>
+            
         </ul>
     </nav>
+    <img src="../assets/media/menu.png" class="menu-icon" onclick="togglemenu()">
+
+    </div>
     <video class="background" src="../assets/media/Young Climate Change Protestors.mp4" width="1250" height="1000" autoplay loop muted></video>
 
     <div class="about">
@@ -27,6 +34,7 @@
         we invite you to browse our website. Here, you’ll be able to visualize climate data and check on 
         politician’s promises, no expertise needed.</p>
     </div>
-    
+    <script src="navresp.js"></script>
+
 </body>
 </html>
