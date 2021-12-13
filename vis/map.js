@@ -1,13 +1,10 @@
 import * as d3 from "https://cdn.skypack.dev/d3@7";
 
 export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
-    console.log(arguments)
-    console.log(visQuerySelector)
     const {meta, data} = datasource;
     const prefix = selector => `${visQuerySelector} ${selector}`
 
     const dataIndexMap = new Map(data.map( (x, i) => [x["Country Code"], i] ))
-    console.log(data)
 
     const defaults = {
         sideLen: 500,
