@@ -217,15 +217,10 @@ nav ul li{
         flex-basis: 100%;
         margin-bottom: 50px;
     }
-    #promise_text1{
+    #promises{
         font-size: 10px;
     }
-    #promise_text2{
-        font-size: 10px;
-    }
-    #promise_text3{
-        font-size: 10px;
-    }
+    
     svg{
         display: none;
     }
