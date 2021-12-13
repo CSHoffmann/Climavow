@@ -9,7 +9,7 @@ if __name__ == "__main__":
         "title" : "Methane Emissions",
         "url" : "https://data.worldbank.org/indicator/EN.ATM.METH.KT?end=2018&start=1960&view=chart",
         "units" : "kt",
-        "years" : [1970, 2021]
+        "years" : [1970, 2019]
     }
 
     data = []

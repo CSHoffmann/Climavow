@@ -56,6 +56,7 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
 
         let vals = Array.from(data.values()).sort((a, b) => +a[year] < +b[year] ? 1 : -1)
         const topten = vals.slice(0, 10)
+        console.log(topten)
 
         x.domain(topten.map(d => d["Country Name"]))
         y.domain([0, maxval])
@@ -85,6 +86,8 @@ export default function BarVis(visQuerySelector, datasource, geojson, _cfg) {
     const hide = () => d3.select(visQuerySelector).style("display", "none")
 
     const show = () => d3.select(visQuerySelector).style("display", "initial")
+    
+    const updateCountry = () => null;
 
-    return {updateYear, hide, show}
+    return {updateYear, updateCountry, hide, show}
 }

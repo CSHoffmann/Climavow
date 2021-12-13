@@ -83,5 +83,7 @@ export default function LineVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const show = () => d3.select(visQuerySelector).style("display", "initial")
 
-    return {updateCountry, hide, show};
+    const updateYear = () => null
+
+    return {updateCountry, updateYear, hide, show};
 }

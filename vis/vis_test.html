@@ -22,6 +22,7 @@
         </select>
         <select id="country">
         </select>
+        <div id="vis"></div>
         <div id="map"></div>
         <div id="bar"></div>
         <div id="line"></div>
@@ -31,6 +32,7 @@
             import MapVis from "./map.js";
             import BarVis from "./bar.js";
             import LineVis from "./line.js";
+            import VisManager from "./vis_manager.js";
 
             Promise.all([
                 d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
@@ -38,13 +40,41 @@
                 d3.json("../data-raw/methane emissions/data.json"),
                 d3.json("../data-raw/nitrous oxide emissions/data.json"),
             ]).then(res => {
-                const [geojson, co2, methane, n2o] = res;
-                const {_, data} = co2;
+                const [geojson, ...datasets] = res;
+                const {_, data} = datasets[0];
                 const countryNames = data.map(x => [x["Country Name"], x["Country Code"]])
                 const years = Object.keys(data[0]).filter(x => !isNaN(x))
 
+
+
+
+                const cfg = {colorInterp: d3.interpolateInferno}
+
+                const vm_args = [
+                    [MapVis, geojson, cfg],
+                    [BarVis, geojson, cfg],
+                    [LineVis, geojson, cfg]
+                ]
+
+                const vm = VisManager(datasets, vm_args)
+
+                d3.select("#charttype")
+                    .on("change", e => {
+                        const t = d3.select(e.target).property("value")
+                        vm.updateVistype(t)
+                    })
+
+                d3.select("#datasource")
+                    .on("change", e => {
+                        const d = d3.select(e.target).property("value")
+                        vm.updateDataset(d)
+                    })
+
                 d3.select("#year")
-                    .on("change")
+                    .on("change", e => {
+                        const year = d3.select(e.target).property("value")
+                        vm.updateYear(year)
+                    })
                     .selectAll("option")
                         .data(years)
                         .enter()
@@ -53,26 +83,17 @@
                                 .text(d => d)
 
                 d3.select("#country")
+                    .on("change", e => {
+                    console.log(e)
+                        const country = d3.select(e.target).property("value")
+                        vm.updateCountry(country)
+                    })
                     .selectAll("option")
                         .data(countryNames)
                         .enter()
                             .append("option")
                                 .attr("value", ([name, code]) => code)
                                 .text(([name, code]) => name)
-
-
-
-
-                const cfg = {colorInterp: d3.interpolateInferno}
-
-                const map = MapVis("#map", co2, geojson, cfg)
-                map.updateYear(1970)
-
-                const bar = BarVis("#bar", co2, geojson, cfg)
-                bar.updateYear(1970)
-
-                const line = LineVis("#line", co2, geojson, cfg)
-                line.updateCountry("USA")
             })
         </script>
     </body>

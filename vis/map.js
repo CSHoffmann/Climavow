@@ -1,12 +1,13 @@
 import * as d3 from "https://cdn.skypack.dev/d3@7";
 
 export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
+    console.log(arguments)
+    console.log(visQuerySelector)
     const {meta, data} = datasource;
-    console.log(meta)
     const prefix = selector => `${visQuerySelector} ${selector}`
 
     const dataIndexMap = new Map(data.map( (x, i) => [x["Country Code"], i] ))
-
+    console.log(data)
 
     const defaults = {
         sideLen: 500,
@@ -86,14 +87,14 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
             d3.select(this)
                 .attr("fill", "black")
 
-            d3.select(`text.scalelabel-${d}`)
+            d3.select(prefix(`text.scalelabel-${d}`))
                 .style("display", "block")
         })
         .on("mouseleave", function (e, d) {
             d3.select(this)
                 .attr("fill", d => cfg.colorInterp(scaleScale(d)))
 
-            d3.select(`text.scalelabel-${d}`)
+            d3.select(prefix(`text.scalelabel-${d}`))
                 .style("display", "none")
         })
     
@@ -150,6 +151,8 @@ export default function MapVis(visQuerySelector, datasource, geojson, _cfg) {
 
     const show = () => d3.select(visQuerySelector).style("display", "initial")
 
-    return {updateYear, hide, show};
+    const updateCountry = () => null
+
+    return {updateYear, updateCountry, hide, show};
 }
         
