@@ -85,8 +85,7 @@ body{
     border-radius: 10px;
     background-color: #F2DFDB;
     padding: 20px;
-    margin: auto;
-    width: 50%;
+float: left;    width: 20%;
 }
 
 select{
@@ -271,13 +270,13 @@ nav ul li{
         margin: auto;
     }
     .filter3{
-        margin: auto;
+        width: 100%;
     }
     .vis{
-        float: center;
+        width: auto;
     }
     .vis2{
-        float: center;    
+        width: auto;    
     }
     
 
