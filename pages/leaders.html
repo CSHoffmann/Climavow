@@ -494,6 +494,27 @@
             })
         });
 	    
+	    function down(){
+        let div =document.getElementById('leaders-rs');
+        
+        html2canvas(div).then(
+            function(canvas) {
+                save(canvas);
+                console.log(canvas)
+            }
+        )
+    }
+
+    function save(canvas) {
+    
+        var link = document.createElement('a');
+        link.href = canvas.toDataURL();
+        link.download = canvas.toDataURL();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+	    
 	    function share(social){
     let div =document.getElementById('leaders-rs');
         
