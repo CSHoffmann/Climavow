@@ -106,6 +106,26 @@ input[type=btn]{
     font-weight: bold;
 }
 
+button{
+    text-align: center;
+    width: 100%;
+    background: #2db333;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: Prata;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: #000;
+    color: white;
+}
+
 input[type=btn]:hover{
     background-color: #000;
     color: white;
@@ -180,6 +200,15 @@ nav ul li{
     align-items: center;
 }
 
+#vis{
+    margin: auto;
+}
+#vis2{
+    margin: auto;
+}
+
+
+
 @media only screen and (max-width:700px) {
     
     nav ul{
@@ -194,7 +223,7 @@ nav ul li{
         display: block;
         margin-top: 10px;
         margin-bottom: 10px;
-       
+       font-size: 20px;
         
     }
     nav ul li a{
@@ -221,12 +250,21 @@ nav ul li{
         font-size: 10px;
     }
     
-    svg{
+    .bigmap{
         display: none;
     }
     .filter2{
         margin: auto;
+        content: "Search below for climate data by country.";
     }
+    .filter{
+        margin: auto;
+    }
+    .filter2 h4{
+        content: "Search below for climate data by country.";
+    }
+
+    
 
 }
 
