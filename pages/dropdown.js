@@ -1,15 +1,26 @@
 var mydata = [
     [],
-    ["United States","Joe Biden"],
-    ["United States","Donald Trump"],
-    ["United States","Barack Obama"],
+    ["United States of America","Joe Biden"],
+    ["United States of America","Barack Obama"],
+    ["United States of America","Donald Trump"],
     ["Russia","Vladimir Putin"],
     ["China","Xi Jinping"],
     ["France","Emmanuel Macron"],
-    ["India"," Narendra Modi"]
-
-   
-   
+    ["India"," Narendra Modi"], 
+    ["Argentina", "Alberto Fernández"],
+	["Japan", "Fumio Kishida"],
+	["Mexico", "Andrés Manuel López Obrador"],
+	["Saudi Arabia", "Mohammed bin Salman"],
+	["South Korea", "Moon Jae-in"],
+	["Turkey", "Recep Tayyip Erdoğan"],
+    ["Germany", "Olaf Scholz"],
+    ["Australia","Scott Morrison"],
+    ["United Kingdom","Boris Johnson"],
+    ["European Union","Ursula von der Leyen"],
+    ["Canada","Justin Trudeau"],
+    ["Indonesia","Joko Widodo"],
+    ["Italy","Mario Draghi"],
+    ["South Africa","Cyril Ramaphosa"]
 ];
 
 function makeDropDown(data,filtersAsArray,targetElement){
