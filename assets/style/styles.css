@@ -80,6 +80,15 @@ body{
     padding: 20px;
 }
 
+.filter3{
+    font-family: Prata;
+    border-radius: 10px;
+    background-color: #F2DFDB;
+    padding: 20px;
+    margin: auto;
+    width: 50%;
+}
+
 select{
     width: 100%;
     padding: 12px, 20px;
@@ -200,11 +209,12 @@ nav ul li{
     align-items: center;
 }
 
-#vis{
-    margin: auto;
+.vis{
+    float: left;
 }
-#vis2{
-    margin: auto;
+.vis2{
+    float: right;
+
 }
 
 
@@ -260,10 +270,15 @@ nav ul li{
     .filter{
         margin: auto;
     }
-    .filter2 h4{
-        content: "Search below for climate data by country.";
+    .filter3{
+        margin: auto;
     }
-
+    .vis{
+        float: center;
+    }
+    .vis2{
+        float: center;    
+    }
     
 
 }
