@@ -469,13 +469,13 @@
 
                         // create img and applies correct check mark
                         let checkImg = document.createElement("img");
-                        if(element.checked == 0){
+                        if(element.checked == 2){
                             checkImg.src = "https://icon-library.com/images/uncheck-icon/uncheck-icon-17.jpg"
                         }
                         else if(element.checked == 1){
                             checkImg.src = "https://upload.wikimedia.org/wikipedia/commons/c/c6/Sign-check-icon.png"
                         }
-                        else{
+                        else if(element.checked == 0){
                             checkImg.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Button_Icon_Orange.svg/1024px-Button_Icon_Orange.svg.png"
                         }
                         checkImg.classList.add("check")
