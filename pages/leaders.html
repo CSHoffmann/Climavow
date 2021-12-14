@@ -72,7 +72,16 @@
     </div>
 </div>
     
+    <!--Share buttons -->  
+    <div id="share">
+        <a onclick="share('facebook')" title="Click to share this post on Facebook"><img id="facebook" src="https://brandlogos.net/wp-content/uploads/2021/04/facebook-icon.png" alt="facebook" width="55" height="55"></a>
+        <a onclick="share('twitter')" title="Click to share this post on Twitter"><img id="twitter" src="https://www.transparentpng.com/thumb/twitter/twitter-smooth-app-icons-png-9.png" alt="twitter" width="45" height="45"></a>
+        <a onclick="share('reddit')" title="Click to share this post on Reddit"><img id="reddit" src="https://www.iconpacks.net/icons/2/free-reddit-logo-icon-2436-thumb.png" alt="reddit" width="50" height="50"></a>  
+    </div>
+    
     <script src="dropdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+
 
     <script>
 
@@ -80,10 +89,10 @@
 
 
         leaders = [
-/*         {
-            name: "Barack Obama",
+            {
+            name: "Joe Biden",
             country: "United States of America",
-            image: "../assets/media/Barack Obama.jpg",
+            image: "https://image.cnbcfm.com/api/v1/image/106878527-1620223837055-106748412-1602881184740-biden.jpg?v=1620224062",
             promises : [
             {
                 promise: "Rejoin Paris Agreement",
@@ -98,107 +107,318 @@
                     checked: 2
                 },
             ]
-        }, */
-        {
-                name: "Joe Biden",
-                country: "United States of America",
-                image: "../assets/media/Joe Biden.jpg",
-                promises : [
-                {
-                    promise: "Rejoin Paris Agreement",
-                    checked : 1
-                    },
-                    {
-                        promise: "By 2030, reduce greenhouse gas emissions by half relative to 2005 levels",
-                        checked: 0
-                    },
-                    {
-                        promise: "Implement clean electricity standard that rewards utilities who switch to renewables and penalizes those who don’t",
-                        checked: 2
-                    },
-                ]
-            },
-            {
+        }, 
 
-                name: "Xi Jinping",
-                country: "China",
-                image: "../assets/media/Xi Jinping.jpg",
-                promises : [
-                    {
-                        promise: "Peak emissions by 2030, carbon-neutral by 2060",
-                        checked : 0
-                    },
-                    {
-                        promise: "No more building coal plants abroad",
-                        checked: 0
-                    },
-                    {
-                        promise: "increase forests by 6 billion cubic meters",
-                        checked: 0
-                    },
-                ]
-            },
-            {
+        {
+            name: "Xi Jinping",
+            country: "China",
+            image: "https://en.wikipedia.org/wiki/Xi_Jinping#/media/File:Xi_Jinping_2019.jpg",
+            promises : [
+                {
+                    promise: "Peak emissions by 2030, carbon-neutral by 2060",
+                    checked : 0
+                },
+                {
+                    promise: "No more building coal plants abroad",
+                    checked: 0
+                },
+                {
+                    promise: "increase forests by 6 billion cubic meters",
+                    checked: 0
+                }
+
+            ]  
+        },
+        {
                 name: "Vladimir Putin",
                 country: "Russia",
-                image: "../assets/media/Vladimir Putin.jpg",
+                image: "https://en.wikipedia.org/wiki/Vladimir_Putin#/media/File:Vladimir_Putin_(2018-03-01)_03_(cropped).jpg",
                 promises : [
-                    {
-                        promise: "“strive for” carbon-neutrality by 2060, not a firm promise (relies significantly on increasing estimates for how much CO2 Russia’s vast forests will absorb as opposed to promising more green energy)",
-                        checked : 0
-                    },
-                    {
-                        promise: "supports CO2 “cap and trade” scheme, opposed to carbon tax",
-                        checked: 1
-                    },
-                ]
-            },
+                {
+                    promise: "“strive for” carbon-neutrality by 2060, not a firm promise (relies significantly on increasing estimates for how much CO2 Russia’s vast forests will absorb as opposed to promising more green energy)",
+                    checked : 0
+                },
+                {
+                    promise: "supports CO2 “cap and trade” scheme, opposed to carbon tax",
+                    checked: 1
+                },
+            ]
+        },
+        {
+            name: "Emmanuel Macron",
+            country: "France",
+            image: "https://en.wikipedia.org/wiki/Emmanuel_Macron#/media/File:Emmanuel_Macron_(cropped).jpg",
+            promises : [
+                {
+                    promise: "hold referendum to put climate action in French constitution",
+                    checked : 2
+                },
+                {
+                    promise: "carbon neutrality for France by 2050",
+                    checked: 0
+                },
+                {
+                    promise: "speed up development of renewable energy without abandoning nuclear",
+                    checked: 0
+                },
+            ]
+        },
+        {
+		name: "Donald Trump",
+		country: "United States of America",
+		image: "https://en.wikipedia.org/wiki/Donald_Trump#/media/File:Donald_Trump_official_portrait.jpg",
+		promises : [
+		{
+              		promise: "Take US out of Paris agreement (done but reversed by Biden)",
+              		checked : 2
+		},
+		]
+    	},
+        {
+            name: "Narendra Modi",
+            country: "India",
+            image: "https://en.wikipedia.org/wiki/Narendra_Modi#/media/File:Narendra_Modi_2021.jpg",
+            promises : [
+                {
+                    promise: "50% of energy needs through renewables by 2030",
+                    checked : 0
+                },
+                {
+                    promise: "net-zero emissions by 2070",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Andrés Manuel López Obrador",
+            country: "Mexico",
+            image: "https://en.wikipedia.org/wiki/Andr%C3%A9s_Manuel_L%C3%B3pez_Obrador#/media/File:Reuni%C3%B3n_con_el_presidente_electo_y_equipos_de_trabajo_6_(cropped).jpg",
+            promises : [
+                {
+              		promise: "reduce emissions by 22% by 2030",
+              		checked : 0
+		        },
+                {
+                    promise: "35% of energy from renewables by 2035",
+                    checked: 0
+                },
+                {
+                    promise: "reduce emissions by 50% by 2050",
+                    checked: 0
+                },
+            ]
+	    },	
+        {
+            name: "Mohammed bin Salman",
+            country: "Saudi Arabia",
+            image: "https://en.wikipedia.org/wiki/Mohammed_bin_Salman#/media/File:Mohammad_bin_Salman_October_2019_(cropped).jpg",
+            promises : [
+                {
+                    promise: "plant 450 million trees by 2030",
+                    checked : 0
+                },
+                {
+                    promise: "achieve net zero emissions by 2060",
+                    checked: 0
+                },
+            ]
+	    },	
+        {
+            name: "Moon Jae-in",
+            country: "South Korea",
+            image: "https://en.wikipedia.org/wiki/Moon_Jae-in#/media/File:Moon_Jae-in_presidential_portrait.jpg",
+            promises : [
+                {   
+                    promise: "reduce coal power from 41.9% to 21.8% of energy by 2030",
+                    checked : 0
+                },
+                {
+                    promise: "30% of energy from renewable sources by 2030",
+                    checked: 0
+                },
+                {
+                    promise: "40% reduction of emissions from 2018 levels by 2030",
+                    checked: 0
+                },
+                {
+                    promise: "carbon neutrality by 2050",
+                    checked: 0
+                },
+            ]
+	    },	
+        {
+            name: "Recep Tayyip Erdoğan",
+            country: "Turkey",
+            image: "https://en.wikipedia.org/wiki/Recep_Tayyip_Erdo%C4%9Fan#/media/File:Recep_Tayyip_Erdo%C4%9Fan_2021.jpg",
+            promises : [
+                {
+                    promise: "ratify Paris Agreement (last G20 country to do so)",
+                    checked : 1
+                },
+                {
+                    promise: "reduce emissions by 21 percent below expected levels by 2030",
+                    checked: 0
+                },
+                {
+                    promise: "achieve carbon neutrality by 2053",
+                    checked: 0
+                },
+            ]
+	    },
+        {
+            name: "Olaf Scholz",
+            country: "Germany",
+            image: "https://de.wikipedia.org/wiki/Olaf_Scholz#/media/Datei:2021-09-12_Politik,_TV-Triell_Bundestagswahl_2021_1DX_3801_by_Stepro_(cropped).jpg",
+            promises : [
             {
-                name: "Emmanuel Macron",
-                country: "France",
-                image: "../assets/media/Emmanuel Macron.jpg",
-                promises : [
-                    {
-                        promise: "hold referendum to put climate action in French constitution",
-                        checked : 2
-                    },
-                    {
-                        promise: "carbon neutrality for France by 2050",
-                        checked: 0
-                    },
-                    {
-                        promise: "speed up development of renewable energy without abandoning nuclear",
-                        checked: 0
-                    },
-                ]
-            },
+                promise: "halt man-made climate change",
+                checked : 0
+                },
+                {
+                    promise: "Increased investment in rail over roads to accelerate the decarbonization of transport",
+                    checked: 0
+                },
+                {
+                    promise: "phase out coal use by 2030",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Ursula von der Leyen",
+            country: "European Union",
+            image: "https://de.wikipedia.org/wiki/Ursula_von_der_Leyen#/media/Datei:Ursula_von_der_Leyen_(49468709252).jpg",
+            promises : [
             {
-                name: "Donald Trump",
-                country: "United States of America",
-                image: "../assets/media/Donald Trump.jpg",
-                promises : [
-                    {
-                        promise: "Take US out of Paris agreement (done but reversed by Biden)",
-                        checked : 2
-                    },
-                ]
-            },
+                promise: "Europe with its European Green Deal will spare no effort to become the first climate neutral continent",
+                checked : 0
+                },
+                {
+                    promise: "mobilising climate finance to better support vulnerable countries in the climate adaptation",
+                    checked: 0
+                },
+                {
+                    promise: "cutting back on methane emissions",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Boris Johnson",
+            country: "United Kingdom",
+            image: "https://upload.wikimedia.org/wikipedia/commons/7/76/Boris_Johnson_official_portrait_%28cropped%29.jpg",
+            promises : [
             {
-                name: "Narendra Modi",
-                country: "India",
-                image: "../assets/media/Narendra Modi.jpg",
-                promises : [
-                    {
-                        promise: "50% of energy needs through renewables by 2030",
-                        checked : 0
-                    },
-                    {
-                        promise: "net-zero emissions by 2070",
-                        checked: 0
-                    },
-                ]
-            },
-        ]
+                promise: "decarbonise the economy by 2050 as part of a 'Green Industrial Revolution'",
+                checked : 0
+                },
+                {
+                    promise: "endangered species needed concerted, co-ordinated, global action.",
+                    checked: 0
+                },
+                {
+                    promise: "ban on the sale of diesel and petrol cars by 2030",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Scott Morrison",
+            country: "Australia",
+            image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Prime_Ministers_of_Australia_Scott_Morrison.jpg",
+            promises : [
+            {
+                promise: "achieving net zero emissions in 2050",
+                checked : 0
+                },
+                {
+                    promise: "reduce emissions by 30% to 35% by 2030",
+                    checked: 0
+                },
+                {
+                    promise: "phase out coal use by 2030",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Justin Trudeau",
+            country: "Canada",
+            image: "https://en.wikipedia.org/wiki/Justin_Trudeau#/media/File:Trudeau_visit_White_House_for_USMCA_(cropped).jpg",
+            promises : [
+            {
+                promise: "implementation of a global price on carbon",
+                checked : 0
+                },
+                {
+                    promise: "increased aid for developing countries to help them transition toward cleaner economies",
+                    checked: 1
+                },
+                {
+                    promise: "reduce emissions by 40 to 45 per cent, compared to 2005 levels, by 2030",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Joko Widodo",
+            country: "Indonesia",
+            image: "https://en.wikipedia.org/wiki/Joko_Widodo#/media/File:Joko_Widodo_2019_official_portrait.jpg",
+            promises : [
+            {
+                promise: "rehabilitate mangrove forests covering an area of 600,000 hectares until 2024’",
+                checked : 0
+                },
+                {
+                    promise: "construction of the largest solar power plant in Southeast Asia",
+                    checked: 0
+                },
+                {
+                    promise: "construction of the world's largest green industrial area in North Kalimantan province",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Mario Draghi",
+            country: "Italy",
+            image: "https://en.wikipedia.org/wiki/Mario_Draghi#/media/File:Mario_Draghi_2021_cropped.jpg",
+            promises : [
+            {
+                promise: "triple its climate finance contribution to 1.4 billion dollars per year for the next five years",
+                checked : 0
+                },
+                {
+                    promise: "reaching net zero by the mid-century",
+                    checked: 0
+                },
+                {
+                    promise: "roughly 70 billion Euros of investments into green infrastructure, circular economy and sustainable mobility in Italy by EU",
+                    checked: 0
+                },
+            ]
+        },
+        {
+            name: "Cyril Ramaphosa",
+            country: "South Africa",
+            image: "https://en.wikipedia.org/wiki/Cyril_Ramaphosa#/media/File:Cyril_Ramaphosa_-_President_of_South_Africa_-_2018_(cropped).jpg",
+            promises : [
+            {
+                promise: "decommissioning, the repowering and the repurposing of coal-fired power stations and the roll-out of renewable energy",
+                checked : 0
+                },
+                {
+                    promise: "$8.5 billion will be mobilised over the next three to five years to support South Africa's just transition to a low-carbon, climate resilient future",
+                    checked: 0
+                },
+                {
+                    promise: "increase use of renewable energy in municipal water and wastewater infrastructure",
+                    checked: 0
+                },
+            ]
+        }
+
+    ]
         //..............................................................................
         var $btn = $('#submit-btn');
         var $name = $('#leader-name');
