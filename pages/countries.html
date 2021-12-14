@@ -58,7 +58,7 @@ THE SOFTWARE.
 <div id="map-container">
 
     <div class="filter2">
-        <form>
+        <form method="GET" role="search">
             <h4 style="text-align: center;">Click on the map or search below for climate data by country.</h4>&nbsp&nbsp
             <select id="countries">
                 <option hidden selected>Select country</option>
@@ -265,16 +265,24 @@ THE SOFTWARE.
                     <option value="209">Zimbabwe</option>
             </select>
 &nbsp&nbsp
-            <select id="indicator">
-                <option hidden selected>Select indicator</option>
-                <option value="0">Carbon Dioxide Emissions</option>
-                <option value="1">Methane Emissions</option>
-                <option value="2">Nitrous Oxide Emissions</option>
-            </select>
-            &nbsp&nbsp
-            <input type="btn" id="submit-btn" value="Get Data" readonly>
-        </form>
+            
+<button type="button" id="buttonId">Submit</button>
+</form>
+        
+       
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <script type = "text/javascript" language = "javascript">
+        jQuery(document).ready(function() {
+           jQuery("#buttonId").click(function() {
+              var country_name = $('#countries :selected').text(); 
+                   window.location = 'countries/'+ country_name + '.html';
+       
+           });
+        });
+       </script>
 
     <svg class="bigmap" baseprofile="tiny" fill="#ececec" height="857" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".2" version="1.2" viewbox="0 0 2000 857" width="2000" xmlns="http://www.w3.org/2000/svg">
         <a xlink:title="Afghanistan" xlink:href="countries/Afghanistan.html">
