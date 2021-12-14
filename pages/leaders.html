@@ -70,6 +70,7 @@
             </div>        
         </div>
     </div>
+	<button onclick="down()" id="download-btn">Download</button>
 </div>
     
     <!--Share buttons -->  
@@ -446,6 +447,9 @@
 	    
 	var results_div = document.getElementById('leaders-rs');
         results_div.style.visibility = "hidden";
+	    
+	var download = document.getElementById('download-btn');
+        download.style.visibility = "hidden";
 
         $btn.click(function() {
             leader = $('#level2').val();
@@ -486,6 +490,7 @@
                     });
                 }
 		    results_div.style.visibility = "visible";
+		    download.style.visibility = "visible";
             })
         });
 	    
