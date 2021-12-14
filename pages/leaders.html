@@ -443,6 +443,9 @@
         var $pic = $('#leader-pic');
         var $promises = $('#promises');
         var $leader;
+	    
+	var results_div = document.getElementById('leaders-rs');
+        results_div.style.visibility = "hidden";
 
         $btn.click(function() {
             leader = $('#level2').val();
@@ -482,6 +485,7 @@
                         $promises.append(div); // append the individual promise div to "promises" list section
                     });
                 }
+		    results_div.style.visibility = "visible";
             })
         });
 	    
