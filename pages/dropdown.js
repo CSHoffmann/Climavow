@@ -1,8 +1,8 @@
 var mydata = [
     [],
     ["United States of America","Joe Biden"],
-    ["United States of America","Barack Obama"],
     ["United States of America","Donald Trump"],
+    ["United States of America","Barack Obama"],
     ["Russia","Vladimir Putin"],
     ["China","Xi Jinping"],
     ["France","Emmanuel Macron"],
