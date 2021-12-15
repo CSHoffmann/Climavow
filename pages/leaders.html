@@ -86,9 +86,7 @@
 
     <script>
 
-        //This is a work in progress
-
-
+    
         leaders = [
             {
             name: "Joe Biden",
@@ -454,7 +452,9 @@
 	var shareBtn = document.getElementById('share');
         shareBtn.style.visibility = "hidden";
 
-        $btn.click(function() {
+        
+	//displays the leaders promises dynamically
+	$btn.click(function() {
             leader = $('#level2').val();
 
             leaders.forEach(element => {
@@ -498,62 +498,67 @@
             })
         });
 	    
-	    function down(){
-        let div =document.getElementById('leaders-rs');
-        
-        html2canvas(div).then(
-            function(canvas) {
-                save(canvas);
-                console.log(canvas)
-            }
-        )
-    }
-
-    function save(canvas) {
-    
-        var link = document.createElement('a');
-        link.href = canvas.toDataURL();
-        link.download = canvas.toDataURL();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
+	
 	    
+	    //downloads the results section
+	    function down(){
+		let div =document.getElementById('leaders-rs');
+
+		html2canvas(div).then(
+		    function(canvas) {
+			save(canvas);
+		    }
+		)
+	    }
+	
+	    //helping function that converts the HTML element to canvas to be able to download
+	    function save(canvas) {
+
+		var link = document.createElement('a');
+		link.href = canvas.toDataURL();
+		link.download = canvas.toDataURL();
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	    }
+
+	    //shares the results section on social media
 	    function share(social){
-    let div =document.getElementById('leaders-rs');
-        
-        html2canvas(div).then(
-            function(canvas) {
-                saveBase64AsFile(canvas, social);
-            }
-        )
-    }
+		let div =document.getElementById('leaders-rs');
 
-    function saveBase64AsFile(canvas, social) {
-    
-        const link = document.createElement('a');
-        canvas.toBlob(function(blob) {
-            let body = new FormData();
-            body.set('key', '4dec002fbcf11446064d1e7eddc2b6ed');
-            body.append('image', blob);
-            fetch("https://api.imgbb.com/1/upload", {
-                    method: "POST",
-                    body: body
-                }).then(res => res.json()).then( package => package.data).then(image => 
-                {
-                    if (social == 'facebook'){
-                        window.open('http://www.facebook.com/sharer.php?u='+image.display_url)
+		html2canvas(div).then(
+		    function(canvas) {
+			saveBase64AsFile(canvas, social);
+		    }
+		)
+	    }
+	
+	    //helping function that converts the canvas element to a blob to be uploaded and then shared 
+	    function saveBase64AsFile(canvas, social) {
 
-                    }else if (social == 'twitter'){
-                        window.open('https://twitter.com/intent/tweet?text=Check%20out%20the%20status%20of%20these%20climate%20promises.%20What%20do%20you%20think%20about%20this?'+image.display_url)
-                    }
-                    else if (social =='reddit'){
-                        window.open('http://www.reddit.com/submit?url='+image.display_url)
-                    }
-                    
-                }
-                )    
-        });
+		const link = document.createElement('a');
+		canvas.toBlob(function(blob) {
+		    let body = new FormData();
+		    body.set('key', '4dec002fbcf11446064d1e7eddc2b6ed');
+		    body.append('image', blob);
+		    fetch("https://api.imgbb.com/1/upload", {
+			    method: "POST",
+			    body: body
+			}).then(res => res.json()).then( package => package.data).then(image => 
+			{
+			    if (social == 'facebook'){
+				window.open('http://www.facebook.com/sharer.php?u='+image.display_url)
+
+			    }else if (social == 'twitter'){
+				window.open('https://twitter.com/intent/tweet?text=Check%20out%20the%20status%20of%20these%20climate%20promises.%20What%20do%20you%20think%20about%20this?'+image.display_url)
+			    }
+			    else if (social =='reddit'){
+				window.open('http://www.reddit.com/submit?url='+image.display_url)
+			    }
+
+			}
+			)    
+		});
     }
     </script> 
     <script src="navresp.js"></script>
