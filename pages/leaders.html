@@ -450,6 +450,9 @@
 	    
 	var download = document.getElementById('download-btn');
         download.style.visibility = "hidden";
+	    
+	var shareBtn = document.getElementById('share');
+        shareBtn.style.visibility = "hidden";
 
         $btn.click(function() {
             leader = $('#level2').val();
@@ -491,6 +494,7 @@
                 }
 		    results_div.style.visibility = "visible";
 		    download.style.visibility = "visible";
+		    shareBtn.style.visibility = "visible";
             })
         });
 	    
