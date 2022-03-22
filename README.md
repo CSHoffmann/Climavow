@@ -1,44 +1,15 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <h3 align="center">Climavow</h3>
-  <p align="center">
-    Website targeted towards climate consciousness individuals
-    <br />
-    <a href="https://cshoffmann.github.io/Climavow/"><strong>View Climavow »</strong></a>
-  </p>
-</p>
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#data">Data</a></li>
-        <li><a href="#use-case">Use Case</a></li>
-        <li><a href="#limitations">Limitations</a></li>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
+# Climavow
 
 Climavow is a website that acts as an interactive dashboard or climate data and a database of climate promises and policy goals of various world leaders.
 
-<!-- LICENSE -->
-## License
+This is a group project created by AU students using Agile development framework.
+The technologies used are HTML, CSS, JavaScript and Python.
 
-Distributed under the MIT License. See `LICENSE` for more information.
+# How to Use
 
-<br> <!-- Some space at bottom of page so acknowledgements -->
+You can go to the Climavow website using a web browser (Chrome and Firefox preferred) [here](https://cshoffmann.github.io/Climavow/), or you can
+download this repo to your computer using git:
+
+```bash
+$ git clone https://github.com/CSHoffmann/Climavow.git
+```
